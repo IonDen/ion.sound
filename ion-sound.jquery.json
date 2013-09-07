@@ -1,0 +1,33 @@
+﻿{
+    "name": "ion-sound",
+    "version": "1.0.0",
+    "title": "Ion.Sound",
+    "description": "Plugin for playing sounds on events",
+    "keywords": [
+        "sound",
+        "sounds",
+        "audio",
+        "html5",
+        "events",
+        "alert",
+        "ui"
+    ],
+    "author": {
+        "name": "IonDen",
+        "url": "https://github.com/IonDen",
+        "email": "denis.ineshin@gmail.com"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://ionden.com/a/plugins/licence-en.html"
+        }
+    ],
+    "homepage": "https://github.com/IonDen/ion.sound",
+    "docs": "https://github.com/IonDen/ion.sound/blob/master/readme.md",
+    "demo": "http://ionden.com/a/plugins/ion.sound/en.html",
+    "download": "http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.0.zip",
+    "dependencies": {
+        "jquery": ">=1.9"
+    }
+}
