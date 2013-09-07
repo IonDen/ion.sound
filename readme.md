@@ -3,7 +3,7 @@
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 Plugin for playing sounds on events.
-* <a href="http://ionden.com/a/plugins/ion.sound/index.html">Project page and demos</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
 * <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.0.zip">Download ion.sound-1.0.0.zip</a>
 
 ***
