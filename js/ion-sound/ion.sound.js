@@ -1,5 +1,5 @@
 ﻿// Ion.Sound
-// version 1.0.1 Build: 4
+// version 1.0.2 Build: 6
 // © 2013 Denis Ineshin | IonDen.com
 //
 // Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -87,7 +87,9 @@ ion.sound = {
                 if($sound.ended) {
                     $sound.play();
                 } else {
-                    $sound.currentTime = 0;
+                    try {
+                        $sound.currentTime = 0;
+                    } catch (e) {}
                     $sound.play();
                 }
             }
