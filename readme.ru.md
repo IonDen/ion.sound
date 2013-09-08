@@ -1,10 +1,10 @@
-# Ion.Sound 1.0.0
+# Ion.Sound 1.0.1
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 Плагин для воспроизведения звуков событий.
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.0.zip">Скачать ion.sound-1.0.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.1.zip">Скачать ion.sound-1.0.1.zip</a>
 
 ***
 
@@ -110,4 +110,5 @@ $("#myButton").on("click", function(){
 
 
 ## История обновлений
+* 08.09.2013 - небольшое улучшение
 * 07.09.2013 - релиз плагина

@@ -1,10 +1,10 @@
-# Ion.Sound 1.0.0
+# Ion.Sound 1.0.1
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 Plugin for playing sounds on events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.0.zip">Download ion.sound-1.0.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.1.zip">Download ion.sound-1.0.1.zip</a>
 
 ***
 
@@ -113,4 +113,5 @@ $("#myButton").on("click", function(){
 
 
 ## Update history
+* September 08, 2013 - Little enhancement
 * September 07, 2013 - Plugin release
