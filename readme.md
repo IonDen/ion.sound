@@ -29,7 +29,9 @@ Import this libraries:
 Prepare sound-files (15 sounds are included) and put them in some folder (eg. "sounds"):
 * my_cool_sound.mp3
 * my_cool_sound.ogg
-It is not enough to have only Mp3-file, you should make Ogg-file too, because not all browsers support Mp3. You can easily convert you Mp3-s to Ogg-s <a href="http://media.io/" target="_blank">online</a>.
+
+It is not enough to have only Mp3-file, you should make Ogg-file too, because not all browsers support Mp3.<br/>
+You can easily convert you Mp3-s to Ogg-s at <a href="http://media.io/" target="_blank">Media.io</a> or at <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.
 
 
 ## Initialisation

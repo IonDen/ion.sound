@@ -28,7 +28,9 @@
 Готовим звуковые файлы (15 звуков включены в поставку) и складываем их в какую-либо папку (например "sounds"):
 * my_cool_sound.mp3
 * my_cool_sound.ogg
-Помимо Mp3-файла, нужно так же подготовить Ogg-файл, так как не все браузеры поддерживают mp3. Конвертировать Mp3 в Ogg можно <a href="http://media.io/" target="_blank">прямо онлайн</a>.
+
+Помимо Mp3-файла, нужно так же подготовить Ogg-файл, так как не все браузеры поддерживают mp3.<br/>
+Конвертировать Mp3 в Ogg можно на <a href="http://media.io/" target="_blank">Media.io</a> или на <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.
 
 
 ## Инициализация
