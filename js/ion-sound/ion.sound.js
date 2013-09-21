@@ -1,5 +1,5 @@
 ﻿// Ion.Sound
-// version 1.0.2 Build: 6
+// version 1.1.0 Build: 13
 // © 2013 Denis Ineshin | IonDen.com
 //
 // Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -9,81 +9,55 @@
 // http://ionden.com/a/plugins/licence-en.html
 // =====================================================================================================================
 
-var ion = ion || {};
+(function ($) {
 
-ion.sound = {
-    init: function(options){
-        var settings = $.extend({
-            sounds: [
-                "beer_can_opening",
-                "bell_ring",
-                "branch_break",
-                "button_click",
-                "button_click_on",
-                "button_push",
-                "button_tiny",
-                "camera_flashing",
-                "computer_error",
-                "door_bell",
-                "light_bulb_breaking",
-                "metal_plate",
-                "pop_cork",
-                "staple_gun",
-                "water_droplet"
-            ],
-            path: "static/sounds/",
-            multiPlay: true,
-            volume: "0.5"
-        }, options);
+    if($.ionSound) {
+        return;
+    }
 
-        var i,
-            soundsNum = settings.sounds.length,
-            self = this,
-            canMp3,
-            url;
 
-        this.sounds = {};
-        this.playing = false;
-        this.multiPlay = settings.multiPlay;
+    var settings = {},
+        soundsNum,
+        canMp3,
+        url,
+        i,
 
-        var createSound = function(name){
-            self.sounds[name] = new Audio();
-            canMp3 = self.sounds[name].canPlayType("audio/mp3");
-            if(canMp3 === "probably" || canMp3 === "maybe") {
-                url = settings.path + name + ".mp3";
-            } else {
-                url = settings.path + name + ".ogg";
-            }
+        sounds = {},
+        playing = false;
 
-            $(self.sounds[name]).prop("src", url);
-            self.sounds[name].load();
-            self.sounds[name].volume = settings.volume;
-        };
 
-        if(typeof Audio === "function" || typeof Audio === "object") {
-            for(i = 0; i < soundsNum; i += 1){
-                createSound(settings.sounds[i]);
-            }
+    var createSound = function(name){
+        sounds[name] = new Audio();
+        canMp3 = sounds[name].canPlayType("audio/mp3");
+        if(canMp3 === "probably" || canMp3 === "maybe") {
+            url = settings.path + name + ".mp3";
+        } else {
+            url = settings.path + name + ".ogg";
         }
-    },
-    play: function(name){
-        var $sound = this.sounds[name],
-            playingInt,
-            self = this;
 
-        if(typeof $sound === "object") {
+        $(sounds[name]).prop("src", url);
+        sounds[name].load();
+        sounds[name].volume = settings.volume;
+    };
 
-            if(!this.multiPlay && !this.playing) {
+
+    var playSound = function(name){
+        var $sound = sounds[name],
+            playingInt;
+
+        if(typeof $sound === "object" && $sound !== null) {
+
+            if(!settings.multiPlay && !playing) {
                 $sound.play();
-                this.playing = true;
+                playing = true;
 
                 playingInt = setInterval(function(){
                     if($sound.ended) {
                         clearInterval(playingInt);
-                        self.playing = false;
+                        playing = false;
                     }
                 }, 250);
-            } else if(this.multiPlay) {
+            } else if(settings.multiPlay) {
                 if($sound.ended) {
                     $sound.play();
                 } else {
@@ -95,5 +69,41 @@ ion.sound = {
             }
 
         }
-    }
-};
+    };
+
+
+    // Plugin methods
+    $.ionSound = function(options){
+
+        settings = $.extend({
+            sounds: [
+                "water_droplet"
+            ],
+            path: "static/sounds/",
+            multiPlay: true,
+            volume: "0.5"
+        }, options);
+
+        soundsNum = settings.sounds.length;
+
+        if(typeof Audio === "function" || typeof Audio === "object") {
+            for(i = 0; i < soundsNum; i += 1){
+                createSound(settings.sounds[i]);
+            }
+        }
+
+        $.ionSound.play = function(name) {
+            playSound(name);
+        };
+    };
+
+
+    $.ionSound.destroy = function() {
+        for(i = 0; i < soundsNum; i += 1){
+            sounds[settings.sounds[i]] = null;
+        }
+        soundsNum = 0;
+        $.ionSound.play = function(){};
+    };
+
+}(jQuery));

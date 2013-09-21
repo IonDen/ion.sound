@@ -1,10 +1,10 @@
-# Ion.Sound 1.0.2
+# Ion.Sound 1.1.0
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 Плагин для воспроизведения звуков событий.
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.2.zip">Скачать ion.sound-1.0.2.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.1.0.zip">Скачать ion.sound-1.1.0.zip</a>
 
 ***
 
@@ -36,12 +36,16 @@
 ## Инициализация
 Инициализируем плагин:
 ```javascript
-ion.sound.init();
+$.ionSound({
+    sounds: [
+        "my_cool_sound"
+    ]
+});
 ```
 
 Играем звук:
 ```javascript
-ion.sound.play("my_cool_sound");
+$.ionSound.play("my_cool_sound");
 ```
 
 ## Параметры
@@ -79,19 +83,11 @@ ion.sound.play("my_cool_sound");
 
 Пример плагина подключенного с параметрами:
 ```javascript
-ion.sound.init({
-    sounds: [                       // указываем названия звуков
+$.ionSound({
+    sounds: [                       // указываем нужные названия звуков
         "beer_can_opening",
         "bell_ring",
         "branch_break",
-        "button_click",
-        "button_click_on",
-        "button_push",
-        "button_tiny",
-        "camera_flashing",
-        "computer_error",
-        "door_bell",
-        "light_bulb_breaking",
         "metal_plate",
         "pop_cork",
         "staple_gun",
@@ -106,12 +102,19 @@ ion.sound.init({
 Проигрываем один из звуков при нажатии на кнопку:
 ```javascript
 $("#myButton").on("click", function(){
-    ion.sound.play("button_tiny");
+    $.ionSound.play("button_tiny");
 });
 ```
 
 
+Прекращаем работу плагина:
+```javascript
+$.ionSound.destroy();
+```
+
+
 ## История обновлений
+* 21.09.2013 - плагин переехал в простарнство имен jQuery, добавлен новый метод, добавлено 10 звуков
 * 08.09.2013 - исправлен баг в iOS
 * 08.09.2013 - небольшое улучшение
 * 07.09.2013 - релиз плагина

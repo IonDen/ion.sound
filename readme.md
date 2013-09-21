@@ -1,10 +1,10 @@
-# Ion.Sound 1.0.2
+# Ion.Sound 1.1.0
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 Plugin for playing sounds on events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.0.2.zip">Download ion.sound-1.0.2.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.1.0.zip">Download ion.sound-1.1.0.zip</a>
 
 ***
 
@@ -12,7 +12,7 @@ Plugin for playing sounds on events.
 * Crossbrowser support: Google Chrome, Mozilla Firefox, Opera, Safari, IE(9.0+) and mobile browsers
 * <a href="https://github.com/IonDen/ion.sound">GitHub Page</a>.
 * Ion.Sound freely distributed under terms of <a href="http://ionden.com/a/plugins/licence-en.html" target="_blank">MIT licence</a>.
-* Ion.Sound includes 15 free sounds
+* Ion.Sound includes 25 free sounds
 
 Today websites are full of events (new mail, new chat-message, content update etc.). Often it is not enough to indicate this events only visually to get user attention. You need sounds! This library, made for playing small sounds, will help you with this task.
 
@@ -26,7 +26,7 @@ Import this libraries:
 * jQuery
 * ion.sound.min.js
 
-Prepare sound-files (15 sounds are included) and put them in some folder (eg. "sounds"):
+Prepare sound-files (25 sounds are included) and put them in some folder (eg. "sounds"):
 * my_cool_sound.mp3
 * my_cool_sound.ogg
 
@@ -37,12 +37,16 @@ You can easily convert you Mp3-s to Ogg-s at <a href="http://media.io/" target="
 ## Initialisation
 To initialise plugin call this method:
 ```javascript
-ion.sound.init();
+$.ionSound({
+    sounds: [
+        "my_cool_sound"
+    ]
+});
 ```
 
 And play sound!
 ```javascript
-ion.sound.play("my_cool_sound");
+$.ionSound.play("my_cool_sound");
 ```
 
 
@@ -58,7 +62,7 @@ ion.sound.play("my_cool_sound");
     <tbody>
         <tr>
             <td>sounds</td>
-            <td>[Array of 15 sounds]</td>
+            <td>["water droplet"]</td>
             <td>Optional property, you can set your own sounds collection here.</td>
         </tr>
         <tr>
@@ -81,19 +85,11 @@ ion.sound.play("my_cool_sound");
 
 An example of a customised plugin:
 ```javascript
-ion.sound.init({
-    sounds: [                       // set sounds names
+$.ionSound({
+    sounds: [                       // set needed sounds names
         "beer_can_opening",
         "bell_ring",
         "branch_break",
-        "button_click",
-        "button_click_on",
-        "button_push",
-        "button_tiny",
-        "camera_flashing",
-        "computer_error",
-        "door_bell",
-        "light_bulb_breaking",
         "metal_plate",
         "pop_cork",
         "staple_gun",
@@ -109,12 +105,19 @@ ion.sound.init({
 Playing sound on button click:
 ```javascript
 $("#myButton").on("click", function(){
-    ion.sound.play("button_tiny");
+    $.ionSound.play("button_tiny");
 });
 ```
 
 
+Destroying the plugin:
+```javascript
+$.ionSound.destroy();
+```
+
+
 ## Update history
+* September 21, 2013 - plugin moved to jQuery namespace, new method and 10 new sounds
 * September 08, 2013 - iOS not playing sound bug fix
 * September 08, 2013 - Little enhancement
 * September 07, 2013 - Plugin release
