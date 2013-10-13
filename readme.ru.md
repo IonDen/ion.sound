@@ -17,7 +17,7 @@
 
 
 ## Зависимости
-* <a href="http://jquery.com/" target="_blank">jQuery 1.9+</a>
+* <a href="http://jquery.com/" target="_blank">jQuery 1.6+</a>
 
 
 ## Подключение

@@ -18,7 +18,7 @@ Today websites are full of events (new mail, new chat-message, content update et
 
 
 ## Dependencies
-* <a href="http://jquery.com/" target="_blank">jQuery 1.9+</a>
+* <a href="http://jquery.com/" target="_blank">jQuery 1.6+</a>
 
 
 ## Usage
