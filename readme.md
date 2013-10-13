@@ -1,10 +1,10 @@
-# Ion.Sound 1.1.0
+# Ion.Sound 1.2.0
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 Plugin for playing sounds on events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.1.0.zip">Download ion.sound-1.1.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.2.0.zip">Download ion.sound-1.2.0.zip</a>
 
 ***
 
@@ -62,8 +62,8 @@ $.ionSound.play("my_cool_sound");
     <tbody>
         <tr>
             <td>sounds</td>
-            <td>["water droplet"]</td>
-            <td>Optional property, you can set your own sounds collection here.</td>
+            <td>["water_droplet:0.5"]</td>
+            <td>Optional property, you can set your own sounds collection here. It is array.<br/>:0.5 - optional individual volume. Example: <code>sound_name:0.2</code></td>
         </tr>
         <tr>
             <td>path</td>
@@ -88,12 +88,12 @@ An example of a customised plugin:
 $.ionSound({
     sounds: [                       // set needed sounds names
         "beer_can_opening",
-        "bell_ring",
+        "bell_ring:0.3",            // :0.3 - individual volume
         "branch_break",
         "metal_plate",
-        "pop_cork",
+        "pop_cork:0.8",             // :0.8 - individual volume
         "staple_gun",
-        "water_droplet"
+        "water_droplet:0.4"         // :0.4 - individual volume
     ],
     path: "sounds/",                // set path to sounds
     multiPlay: false,               // playing only 1 sound at once
@@ -117,6 +117,7 @@ $.ionSound.destroy();
 
 
 ## Update history
+* October 13, 2013 - now you can set individual volume for any sound. Improved test environment.
 * September 21, 2013 - plugin moved to jQuery namespace, new method and 10 new sounds
 * September 08, 2013 - iOS not playing sound bug fix
 * September 08, 2013 - Little enhancement

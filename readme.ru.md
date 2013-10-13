@@ -1,10 +1,10 @@
-# Ion.Sound 1.1.0
+# Ion.Sound 1.2.0
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 Плагин для воспроизведения звуков событий.
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.1.0.zip">Скачать ion.sound-1.1.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.2.0.zip">Скачать ion.sound-1.2.0.zip</a>
 
 ***
 
@@ -60,8 +60,8 @@ $.ionSound.play("my_cool_sound");
     <tbody>
         <tr>
             <td>sounds</td>
-            <td>[Массив из 15 звуков]</td>
-            <td>Не обязательный параметр, позволяет задать набор подключаемых звуков</td>
+            <td>["water_droplet:0.5"]</td>
+            <td>Не обязательный параметр, позволяет задать набор подключаемых звуков в виде массива.<br/>:0.5 - не обязательный параметр, задает индивидуальную громкость. Например <code>Sound_name:0.8</code></td>
         </tr>
         <tr>
             <td>path</td>
@@ -86,9 +86,9 @@ $.ionSound.play("my_cool_sound");
 $.ionSound({
     sounds: [                       // указываем нужные названия звуков
         "beer_can_opening",
-        "bell_ring",
+        "bell_ring:0.3",            // индивидуальная громкость 0.3
         "branch_break",
-        "metal_plate",
+        "metal_plate:0.4",          // индивидуальная громкость 0.4
         "pop_cork",
         "staple_gun",
         "water_droplet"
@@ -114,6 +114,7 @@ $.ionSound.destroy();
 
 
 ## История обновлений
+* 13.10.2013 - добавлена возмоность устанавливать индивидуальную громкость для каждого звука. Улучшено тестовое окружение
 * 21.09.2013 - плагин переехал в простарнство имен jQuery, добавлен новый метод, добавлено 10 звуков
 * 08.09.2013 - исправлен баг в iOS
 * 08.09.2013 - небольшое улучшение
