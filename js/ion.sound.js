@@ -1,5 +1,5 @@
 ﻿// Ion.Sound
-// version 1.2.0 Build: 16
+// version 1.3.0 Build: 20
 // © 2013 Denis Ineshin | IonDen.com
 //
 // Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -23,7 +23,9 @@
         i,
 
         sounds = {},
-        playing = false;
+        playing = false,
+
+        VERSION = "1.3.0";
 
 
     var createSound = function (soundInfo) {
@@ -47,38 +49,87 @@
 
         $(sounds[name]).prop("src", url);
         sounds[name].load();
+        sounds[name].preload = "auto";
         sounds[name].volume = volume || settings.volume;
     };
 
 
-    var playSound = function (name) {
-        var $sound = sounds[name],
-            playingInt;
+    var playSound = function (info) {
+        var $sound,
+            name,
+            volume,
+            playing_int;
 
-        if (typeof $sound === "object" && $sound !== null) {
+        if (info.indexOf(":") !== -1) {
+            name = info.split(":")[0];
+            volume = info.split(":")[1];
+        } else {
+            name = info;
+        }
 
-            if (!settings.multiPlay && !playing) {
-                $sound.play();
-                playing = true;
+        $sound = sounds[name];
 
-                playingInt = setInterval(function () {
-                    if ($sound.ended) {
-                        clearInterval(playingInt);
-                        playing = false;
-                    }
-                }, 250);
-            } else if (settings.multiPlay) {
+        if (typeof $sound !== "object" || $sound === null) {
+            return;
+        }
+
+
+        if (volume) {
+            $sound.volume = volume;
+        }
+
+        if (!settings.multiPlay && !playing) {
+
+            $sound.play();
+            playing = true;
+
+            playing_int = setInterval(function () {
                 if ($sound.ended) {
-                    $sound.play();
-                } else {
-                    try {
-                        $sound.currentTime = 0;
-                    } catch (e) {}
-                    $sound.play();
+                    clearInterval(playing_int);
+                    playing = false;
                 }
+            }, 250);
+
+        } else if (settings.multiPlay) {
+
+            if ($sound.ended) {
+                $sound.play();
+            } else {
+                try {
+                    $sound.currentTime = 0;
+                } catch (e) {}
+                $sound.play();
             }
 
         }
+    };
+
+
+    var stopSound = function (name) {
+        var $sound = sounds[name];
+
+        if (typeof $sound !== "object" || $sound === null) {
+            return;
+        }
+
+        $sound.pause();
+        try {
+            $sound.currentTime = 0;
+        } catch (e) {}
+    };
+
+
+    var killSound = function (name) {
+        var $sound = sounds[name];
+
+        if (typeof $sound !== "object" || $sound === null) {
+            return;
+        }
+
+        try {
+            sounds[name].src = "";
+        } catch (e) {}
+        sounds[name] = null;
     };
 
 
@@ -105,6 +156,12 @@
         $.ionSound.play = function (name) {
             playSound(name);
         };
+        $.ionSound.stop = function (name) {
+            stopSound(name);
+        };
+        $.ionSound.kill = function (name) {
+            killSound(name);
+        };
     };
 
 
@@ -114,6 +171,8 @@
         }
         soundsNum = 0;
         $.ionSound.play = function () {};
+        $.ionSound.stop = function () {};
+        $.ionSound.kill = function () {};
     };
 
 }(jQuery));

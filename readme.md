@@ -1,10 +1,10 @@
-# Ion.Sound 1.2.0
+# Ion.Sound 1.3.0
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 Plugin for playing sounds on events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.2.0.zip">Download ion.sound-1.2.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.3.0.zip">Download ion.sound-1.3.0.zip</a>
 
 ***
 
@@ -102,13 +102,34 @@ $.ionSound({
 ```
 
 
-Playing sound on button click:
+## Methods
+
+Playing sound:
 ```javascript
+$.ionSound.play("button_tiny");
+
+// For example playing sound on button click
+
 $("#myButton").on("click", function(){
     $.ionSound.play("button_tiny");
 });
+
+// or reset the sound volume
+
+$("#myButton").on("click", function(){
+    $.ionSound.play("button_tiny:0.5");
+});
 ```
 
+Stop sound playback:
+```javascript
+$.ionSound.stop("button_tiny");
+```
+
+Remove sound from memory:
+```javascript
+$.ionSound.kill("button_tiny");
+```
 
 Destroying the plugin:
 ```javascript
@@ -117,6 +138,7 @@ $.ionSound.destroy();
 
 
 ## Update history
+* November 30, 2013 - new methods "stop" and "kill". Ability to reset sound volume.
 * October 13, 2013 - now you can set individual volume for any sound. Improved test environment.
 * September 21, 2013 - plugin moved to jQuery namespace, new method and 10 new sounds
 * September 08, 2013 - iOS not playing sound bug fix
