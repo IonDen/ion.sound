@@ -58,7 +58,13 @@
         var $sound,
             name,
             volume,
-            playing_int;
+            playing_int,
+            countRandom;
+
+        if(info == undefined){
+            countRandom = Math.floor(Math.random() * soundsNum);
+            info = settings.sounds[countRandom];
+        }
 
         if (info.indexOf(":") !== -1) {
             name = info.split(":")[0];
