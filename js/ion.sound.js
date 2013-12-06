@@ -61,7 +61,7 @@
             playing_int,
             countRandom;
 
-        if(info == undefined){
+        if (info == undefined) {
             countRandom = Math.floor(Math.random() * soundsNum);
             info = settings.sounds[countRandom];
         }
