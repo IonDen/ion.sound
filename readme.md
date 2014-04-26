@@ -121,6 +121,13 @@ $("#myButton").on("click", function(){
 });
 ```
 
+Play looped sound:
+```javascript
+$.ionSound.play({ name: "button_tiny", loop: true });
+// or
+$.ionSound.loop({ name: "button_tiny" });
+```
+
 Stop sound playback:
 ```javascript
 $.ionSound.stop("button_tiny");

@@ -55,50 +55,74 @@
 
 
     var playSound = function (info) {
-        var $sound,
-            name,
-            volume,
-            playing_int;
+        // Builded a playInfo object instead of seperate vars
+        var playInfo = {};
 
-        if (info.indexOf(":") !== -1) {
-            name = info.split(":")[0];
-            volume = info.split(":")[1];
-        } else {
-            name = info;
+        // Check if we have a string (the old way) or a object, we can now specify both
+        if (typeof info == "string") {
+            //it's a string
+            if (info.indexOf(":") !== -1) {
+                playInfo.name = info.split(":")[0];
+                playInfo.volume = info.split(":")[1];
+            } else {
+                playInfo.name = info;
+            }
         }
-
-        $sound = sounds[name];
-
-        if (typeof $sound !== "object" || $sound === null) {
+        else if (info != null && typeof info == "object") {
+            //it's an object
+            playInfo = info;
+        }
+        else {
+            //it's null or something else
             return;
         }
 
+        // Continue normal operations
+        playInfo.$sound = sounds[playInfo.name];
 
-        if (volume) {
-            $sound.volume = volume;
+        if (typeof playInfo.$sound !== "object" || playInfo.$sound === null) {
+            return;
+        }
+
+        if (playInfo.volume) {
+            playInfo.$sound.volume = volume;
+        }
+
+        // Added Looping support
+        if (playInfo.loop) {
+            // TODO somehow in Firefox there is a larger delay between 2 playbacks: Chrome is much faster playing the second sample
+            if (typeof playInfo.$sound.loop == 'boolean')
+            {
+                playInfo.$sound.loop = true;
+            }
+            else
+            {
+                playInfo.$sound.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+            }
         }
 
         if (!settings.multiPlay && !playing) {
 
-            $sound.play();
+            playInfo.$sound.play();
             playing = true;
 
-            playing_int = setInterval(function () {
-                if ($sound.ended) {
-                    clearInterval(playing_int);
-                    playing = false;
-                }
-            }, 250);
+            // Subscribe to event
+            playInfo.$sound.addEventListener('ended', function() {
+                playing = false;
+            }, false);
 
         } else if (settings.multiPlay) {
 
-            if ($sound.ended) {
-                $sound.play();
+            if (playInfo.$sound.ended) {
+                playInfo.$sound.play();
             } else {
                 try {
-                    $sound.currentTime = 0;
+                    playInfo.$sound.currentTime = 0;
                 } catch (e) {}
-                $sound.play();
+                playInfo.$sound.play();
             }
 
         }
@@ -156,6 +180,12 @@
         $.ionSound.play = function (name) {
             playSound(name);
         };
+
+        $.ionSound.loop = function (info) {
+            info.loop = true;
+            playSound(info);
+        };
+
         $.ionSound.stop = function (name) {
             stopSound(name);
         };
