@@ -1,29 +1,43 @@
-# Ion.Sound 1.3.0
+# Ion.Sound 2.0.0
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
-Plugin for playing sounds on events.
+JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-1.3.0.zip">Download ion.sound-1.3.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.0.zip">Download ion.sound-2.0.0.zip</a>
 
 ***
 
 ## Description
-* Crossbrowser support: Google Chrome, Mozilla Firefox, Opera, Safari, IE(9.0+) and mobile browsers
-* <a href="https://github.com/IonDen/ion.sound">GitHub Page</a>.
-* Ion.Sound freely distributed under terms of <a href="http://ionden.com/a/plugins/licence-en.html" target="_blank">MIT licence</a>.
-* Ion.Sound includes 25 free sounds
-
 Today websites are full of events (new mail, new chat-message, content update etc.). Often it is not enough to indicate this events only visually to get user attention. You need sounds! This library, made for playing small sounds, will help you with this task.
+* Ion.Sound freely distributed under terms of <a href="http://ionden.com/a/plugins/licence-en.html" target="_blank">MIT licence</a>.
+* 25 free sounds included
+
+
+## Supported browsers
+### Desktop Windows, OS X, Linux:
+
+* Google Chrome
+* Mozilla Firefox
+* Microsoft Internet Explorer 9.0+
+* Opera 12.16+
+* Safari 5.1+ (Safari on Windows requires QuickTime to play sounds)
+
+### Mobile:
+
+* iOS Safari and others (with some <a href="https://developer.apple.com/library/safari/documentation/audiovideo/conceptual/using_html5_audio_video/device-specificconsiderations/device-specificconsiderations.html" target="_blank">restrictions</a>)
+* Android Google Chrome and others (with some restrictions also)
+* WP8 Internet Explorer
+
+<a href="http://caniuse.com/audio" target="_blank">More about browser support</a>
 
 
 ## Dependencies
-* <a href="http://jquery.com/" target="_blank">jQuery 1.6+</a>
+* No dependencies, jQuery dependency was dropped since 2.0
 
 
 ## Usage
 Import this libraries:
-* jQuery
 * ion.sound.min.js
 
 Prepare sound-files (25 sounds are included) and put them in some folder (eg. "sounds"):
@@ -37,16 +51,31 @@ You can easily convert you Mp3-s to Ogg-s at <a href="http://media.io/" target="
 ## Initialisation
 To initialise plugin call this method:
 ```javascript
-$.ionSound({
+ion.sound({
     sounds: [
-        "my_cool_sound"
-    ]
+        {
+            name: "my_cool_sound"
+        },
+        {
+            name: "notify_sound",
+            volume: 0.2
+        },
+        {
+            name: "alert_sound",
+            volume: 0.3,
+            preload: false
+        }
+    ],
+    volume: 0.5,
+    path: "sounds/",
+    preload: true
 });
 ```
 
 And play sound!
 ```javascript
-$.ionSound.play("my_cool_sound");
+// Simple
+ion.sound.play("my_cool_sound");
 ```
 
 
@@ -62,18 +91,23 @@ $.ionSound.play("my_cool_sound");
     <tbody>
         <tr>
             <td>sounds</td>
-            <td>["water_droplet:0.5"]</td>
-            <td>Optional property, you can set your own sounds collection here. It is array.<br/>:0.5 - optional individual volume. Example: <code>sound_name:0.2</code></td>
+            <td>-</td>
+            <td>
+                You should set your own sounds collection here. This is an array of objects. Sound object structure:<br/>
+                <code>name: "sound_name"</code> name of the sound file, without extension, !required<br/>
+                <code>volume: 0.2</code> override default volume<br/>
+                <code>preload: true</code> override default preload setting
+            </td>
         </tr>
         <tr>
             <td>path</td>
-            <td>"static/sounds/"</td>
-            <td>Optional property, set path to folder with sounds.</td>
+            <td>-</td>
+            <td>Example: <code>"sounds/"</code>. Optional property, set path to folder with sounds, if not set will be the same with html file.</td>
         </tr>
         <tr>
-            <td>multiPlay</td>
-            <td>true</td>
-            <td>Optional property, if set to <code>false</code>, will allow plugin to play only 1 sound at once.</td>
+            <td>preload</td>
+            <td>false</td>
+            <td>Optional property, if set to <code>true</code>, will try to preload that sound file on page load.</td>
         </tr>
         <tr>
             <td>volume</td>
@@ -85,61 +119,66 @@ $.ionSound.play("my_cool_sound");
 
 An example of a customised plugin:
 ```javascript
-$.ionSound({
-    sounds: [                       // set needed sounds names
-        "beer_can_opening",
-        "bell_ring:0.3",            // :0.3 - individual volume
-        "branch_break",
-        "metal_plate",
-        "pop_cork:0.8",             // :0.8 - individual volume
-        "staple_gun",
-        "water_droplet:0.4"         // :0.4 - individual volume
+ion.sound({
+    sounds: [
+        {
+            name: "message_alert",
+            volume: 1.0
+        },
     ],
-    path: "sounds/",                // set path to sounds
-    multiPlay: false,               // playing only 1 sound at once
-    volume: "0.3"                   // not so loud please
+    path: "sounds/",
+    preload: true
 });
 ```
 
 
 ## Methods
 
-Playing sound:
+### ion.sound.play
 ```javascript
-$.ionSound.play("button_tiny");
+// Simple
+ion.sound.play("my_cool_sound");
 
-// For example playing sound on button click
-
-$("#myButton").on("click", function(){
-    $.ionSound.play("button_tiny");
+// Change volume and play
+ion.sound.play("my_cool_sound", {
+    volume: 0.9
 });
 
-// or reset the sound volume
+// Loop sound playback
+ion.sound.play("my_cool_sound", {
+    loop: true
+});
 
-$("#myButton").on("click", function(){
-    $.ionSound.play("button_tiny:0.5");
+// Repeat sound for 3 times and reset volume
+ion.sound.play("my_cool_sound", {
+    volume: 0.2,
+    loop: 3
 });
 ```
 
-Stop sound playback:
+### ion.sound.stop
 ```javascript
-$.ionSound.stop("button_tiny");
+// stop sound by name
+ion.sound.stop("my_cool_sound");
+
+// stop all sounds
+ion.sound.stop();
 ```
 
-Remove sound from memory:
+### ion.sound.destroy
 ```javascript
-$.ionSound.kill("button_tiny");
-```
+// destroy sound by name
+ion.sound.destroy("my_cool_sound");
 
-Destroying the plugin:
-```javascript
-$.ionSound.destroy();
+// destroy all sounds
+ion.sound.destroy();
 ```
 
 
 ## Update history
-* November 30, 2013 - new methods "stop" and "kill". Ability to reset sound volume.
-* October 13, 2013 - now you can set individual volume for any sound. Improved test environment.
+* 2.0.0: June 31, 2014 - dropped jQuery dependency, new API, loop sounds feature
+* 1.3.0: November 30, 2013 - new methods "stop" and "kill". Ability to reset sound volume
+* October 13, 2013 - now you can set individual volume for any sound. Improved test environment
 * September 21, 2013 - plugin moved to jQuery namespace, new method and 10 new sounds
 * September 08, 2013 - iOS not playing sound bug fix
 * September 08, 2013 - Little enhancement
