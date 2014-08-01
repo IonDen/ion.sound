@@ -1,18 +1,16 @@
 ﻿/**
- * Ion.Sound
+ * jQuery.Ion.Sound
  * version 2.0.1 Build 32
  * © 2014 Denis Ineshin | IonDen.com
  *
- * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
- * GitHub page:     https://github.com/IonDen/ion.sound
+ * Project page:    http://ionden.com/a/plugins/$.ionSound/en.html
+ * GitHub page:     https://github.com/IonDen/$.ionSound
  *
  * Released under MIT licence:
  * http://ionden.com/a/plugins/licence-en.html
  */
 
-var ion = ion || {};
-
-(function (ion) {
+(function ($) {
 
     var warn = function (text) {
         if (text && console) {
@@ -24,8 +22,8 @@ var ion = ion || {};
         }
     };
 
-    if (ion.sound) {
-        warn("ion.sound already exists!");
+    if ($.ionSound) {
+        warn("$.ionSound already exists!");
         return;
     }
 
@@ -33,10 +31,10 @@ var ion = ion || {};
         var func = function () {
             warn("HTML5 Audio is not supported in this browser");
         };
-        ion.sound = function () {};
-        ion.sound.play = func;
-        ion.sound.stop = func;
-        ion.sound.destroy = func;
+        $.ionSound = function () {};
+        $.ionSound.play = func;
+        $.ionSound.stop = func;
+        $.ionSound.destroy = func;
         func();
         return;
     }
@@ -165,7 +163,7 @@ var ion = ion || {};
         sounds[obj.name].init();
     };
 
-    ion.sound = function (options) {
+    $.ionSound = function (options) {
         settings = JSON.parse(JSON.stringify(options));
         settings.path = settings.path || "";
         settings.volume = settings.volume || 0.5;
@@ -186,15 +184,15 @@ var ion = ion || {};
         }
     };
 
-    ion.sound.version = "2.0.1";
+    $.ionSound.version = "2.0.1";
 
-    ion.sound.play = function (name, options) {
+    $.ionSound.play = function (name, options) {
         if (sounds[name]) {
             sounds[name].play(options);
         }
     };
 
-    ion.sound.stop = function (name) {
+    $.ionSound.stop = function (name) {
         if (name && sounds[name]) {
             sounds[name].stop();
         } else {
@@ -209,7 +207,7 @@ var ion = ion || {};
         }
     };
 
-    ion.sound.destroy = function (name) {
+    $.ionSound.destroy = function (name) {
         if (name && sounds[name]) {
             sounds[name].destroy();
             sounds[name] = null;
@@ -226,4 +224,4 @@ var ion = ion || {};
         }
     };
 
-} (ion));
+} (jQuery));

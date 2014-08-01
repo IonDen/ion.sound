@@ -1,10 +1,10 @@
-# Ion.Sound 2.0.0
+# Ion.Sound 2.0.1
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.0.zip">Download ion.sound-2.0.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.1.zip">Download ion.sound-2.0.1.zip</a>
 
 ***
 
@@ -33,11 +33,12 @@ Today websites are full of events (new mail, new chat-message, content update et
 
 
 ## Dependencies
-* No dependencies, jQuery dependency was dropped since 2.0
+* 2 versions of plugin: jQuery and standalone
 
 
 ## Usage
 Import this libraries:
+* jquery.js - optional
 * ion.sound.min.js
 
 Prepare sound-files (25 sounds are included) and put them in some folder (eg. "sounds"):
@@ -175,7 +176,13 @@ ion.sound.destroy();
 ```
 
 
+## jQuery and non-jQuery plugin differences
+* jQuery method call: <code>$.ionSound.method(...);</code>
+* non-jQuery method call: <code>ion.sound.method(...);</code>
+
+
 ## Update history
+* 2.0.1: August 01, 2014 - 2 versions of plugin, jQuery and non-jQuery
 * 2.0.0: June 31, 2014 - dropped jQuery dependency, new API, loop sounds feature
 * 1.3.0: November 30, 2013 - new methods "stop" and "kill". Ability to reset sound volume
 * October 13, 2013 - now you can set individual volume for any sound. Improved test environment
