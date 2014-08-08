@@ -1,10 +1,10 @@
 ﻿/**
  * jQuery.Ion.Sound
- * version 2.0.1 Build 32
+ * version 2.0.2 Build 34
  * © 2014 Denis Ineshin | IonDen.com
  *
- * Project page:    http://ionden.com/a/plugins/$.ionSound/en.html
- * GitHub page:     https://github.com/IonDen/$.ionSound
+ * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
+ * GitHub page:     https://github.com/IonDen/ion.sound
  *
  * Released under MIT licence:
  * http://ionden.com/a/plugins/licence-en.html
@@ -55,6 +55,7 @@
         this.volume = settings.volume || 0.5;
         this.preload = settings.preload ? "auto" : "none";
         this.loop = false;
+        this.paused = false;
         this.sound = null;
 
         if ("volume" in options) {
@@ -88,7 +89,11 @@
             }
 
             if (obj.loop) {
-                this._playLoop(obj.loop);
+                if (this.paused) {
+                    this._playLoop(this.loop + 1);
+                } else {
+                    this._playLoop(obj.loop);
+                }
             } else {
                 this.loop = false;
                 this._play();
@@ -96,9 +101,13 @@
         },
 
         _play: function () {
-            try {
-                this.sound.currentTime = 0;
-            } catch (e) {}
+            if (this.paused) {
+                this.paused = false;
+            } else {
+                try {
+                    this.sound.currentTime = 0;
+                } catch (e) {}
+            }
 
             this.sound.play();
         },
@@ -120,6 +129,11 @@
                 this.loop -= 1;
                 this._play();
             }
+        },
+
+        pause: function () {
+            this.paused = true;
+            this.sound.pause();
         },
 
         stop: function () {
@@ -184,11 +198,26 @@
         }
     };
 
-    $.ionSound.version = "2.0.1";
+    $.ionSound.version = "2.0.2";
 
     $.ionSound.play = function (name, options) {
         if (sounds[name]) {
             sounds[name].play(options);
+        }
+    };
+
+    $.ionSound.pause = function (name) {
+        if (name && sounds[name]) {
+            sounds[name].pause();
+        } else {
+            for (i in sounds) {
+                if (!sounds.hasOwnProperty(i)) {
+                    continue;
+                }
+                if (sounds[i]) {
+                    sounds[i].pause();
+                }
+            }
         }
     };
 

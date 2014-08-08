@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 2.0.1 Build 32
+ * version 2.0.2 Build 34
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -57,6 +57,7 @@ var ion = ion || {};
         this.volume = settings.volume || 0.5;
         this.preload = settings.preload ? "auto" : "none";
         this.loop = false;
+        this.paused = false;
         this.sound = null;
 
         if ("volume" in options) {
@@ -90,7 +91,11 @@ var ion = ion || {};
             }
 
             if (obj.loop) {
-                this._playLoop(obj.loop);
+                if (this.paused) {
+                    this._playLoop(this.loop + 1);
+                } else {
+                    this._playLoop(obj.loop);
+                }
             } else {
                 this.loop = false;
                 this._play();
@@ -98,9 +103,13 @@ var ion = ion || {};
         },
 
         _play: function () {
-            try {
-                this.sound.currentTime = 0;
-            } catch (e) {}
+            if (this.paused) {
+                this.paused = false;
+            } else {
+                try {
+                    this.sound.currentTime = 0;
+                } catch (e) {}
+            }
 
             this.sound.play();
         },
@@ -122,6 +131,11 @@ var ion = ion || {};
                 this.loop -= 1;
                 this._play();
             }
+        },
+
+        pause: function () {
+            this.paused = true;
+            this.sound.pause();
         },
 
         stop: function () {
@@ -186,11 +200,26 @@ var ion = ion || {};
         }
     };
 
-    ion.sound.version = "2.0.1";
+    ion.sound.version = "2.0.2";
 
     ion.sound.play = function (name, options) {
         if (sounds[name]) {
             sounds[name].play(options);
+        }
+    };
+
+    ion.sound.pause = function (name) {
+        if (name && sounds[name]) {
+            sounds[name].pause();
+        } else {
+            for (i in sounds) {
+                if (!sounds.hasOwnProperty(i)) {
+                    continue;
+                }
+                if (sounds[i]) {
+                    sounds[i].pause();
+                }
+            }
         }
     };
 

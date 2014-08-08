@@ -1,10 +1,10 @@
-# Ion.Sound 2.0.1
+# Ion.Sound 2.0.2
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.1.zip">Download ion.sound-2.0.1.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.2.zip">Download ion.sound-2.0.2.zip</a>
 
 ***
 
@@ -47,6 +47,10 @@ Prepare sound-files (25 sounds are included) and put them in some folder (eg. "s
 
 It is not enough to have only Mp3-file, you should make Ogg-file too, because not all browsers support Mp3.<br/>
 You can easily convert you Mp3-s to Ogg-s at <a href="http://media.io/" target="_blank">Media.io</a> or at <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.
+
+
+## Install with bower
+* bower install ionsound
 
 
 ## Initialisation
@@ -157,6 +161,15 @@ ion.sound.play("my_cool_sound", {
 });
 ```
 
+### ion.sound.pause
+```javascript
+// pause sound by name
+ion.sound.pause("my_cool_sound");
+
+// pause all sounds
+ion.sound.pause();
+```
+
 ### ion.sound.stop
 ```javascript
 // stop sound by name
@@ -182,6 +195,7 @@ ion.sound.destroy();
 
 
 ## Update history
+* 2.0.2: August 08, 2014 - New pause method. Add bower support
 * 2.0.1: August 01, 2014 - 2 versions of plugin, jQuery and non-jQuery
 * 2.0.0: June 31, 2014 - dropped jQuery dependency, new API, loop sounds feature
 * 1.3.0: November 30, 2013 - new methods "stop" and "kill". Ability to reset sound volume

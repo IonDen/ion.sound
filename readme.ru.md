@@ -1,10 +1,10 @@
-# Ion.Sound 2.0.1
+# Ion.Sound 2.0.2
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 JavaScript-плагин для воспроизведения звуков
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.1.zip">Скачать ion.sound-2.0.1.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.2.zip">Скачать ion.sound-2.0.2.zip</a>
 
 ***
 
@@ -47,6 +47,10 @@ JavaScript-плагин для воспроизведения звуков
 
 Помимо Mp3-файла, нужно так же подготовить Ogg-файл, так как не все браузеры поддерживают mp3.<br/>
 Конвертировать Mp3 в Ogg можно на <a href="http://media.io/" target="_blank">Media.io</a> или на <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.
+
+
+## Устанавливаем с помощью bower
+* bower install ionsound
 
 
 ## Инициализация
@@ -155,6 +159,15 @@ ion.sound.play("my_cool_sound", {
 });
 ```
 
+### ion.sound.pause
+```javascript
+// поставим на паузу звук по имени
+ion.sound.pause("my_cool_sound");
+
+// поставим на паузу все звуки
+ion.sound.pause();
+```
+
 ### ion.sound.stop
 ```javascript
 // остановим звук по имени
@@ -180,6 +193,7 @@ ion.sound.destroy();
 
 
 ## История обновлений
+* 2.0.2: 08 августа 2014 - новый метод - пауза. Добавлена поддержка bower
 * 2.0.1: 01 августа 2014 - 2 версии плагина, с jQuery-зависимостью и без
 * 2.0.0: 31 июня 2014 - убрана зависимость от jQuery. Новое API. Возможность повторного воспроизведения звуков
 * 1.3.0: 30 ноября 2013 - новые методы "stop" и "kill". Возможность изменять громкость звука при каждом запуске
