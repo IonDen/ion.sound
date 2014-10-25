@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 2.1.0 Build 42
+ * version 2.1.1 Build 43
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -174,15 +174,15 @@ var ion = ion || {};
         if (can_play_mp3 === "probably") {
             ext = ".mp3";
         } else if (can_play_aac === "probably") {
-            ext = ".ogg";
-        } else if (can_play_ogg === "probably") {
             ext = ".aac";
+        } else if (can_play_ogg === "probably") {
+            ext = ".ogg";
         } else if (can_play_aac === "maybe") {
             ext = ".aac";
         } else if (can_play_mp3 === "maybe") {
-            ext = ".ogg";
-        } else if (can_play_ogg === "maybe") {
             ext = ".mp3";
+        } else if (can_play_ogg === "maybe") {
+            ext = ".ogg";
         } else {
             ext = ".wav";
         }
