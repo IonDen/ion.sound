@@ -1,10 +1,10 @@
-# Ion.Sound 2.0.2
+# Ion.Sound 2.1.0
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 JavaScript-плагин для воспроизведения звуков
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.2.zip">Скачать ion.sound-2.0.2.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.0.zip">Скачать ion.sound-2.1.0.zip</a>
 
 ***
 
@@ -44,9 +44,11 @@ JavaScript-плагин для воспроизведения звуков
 Готовим звуковые файлы (15 звуков включены в поставку) и складываем их в какую-либо папку (например "sounds"):
 * my_cool_sound.mp3
 * my_cool_sound.ogg
+* my_cool_sound.aac
 
-Помимо Mp3-файла, нужно так же подготовить Ogg-файл, так как не все браузеры поддерживают mp3.<br/>
-Конвертировать Mp3 в Ogg можно на <a href="http://media.io/" target="_blank">Media.io</a> или на <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.
+Помимо MP3-файла, нужно так же подготовить OGG и AAC-файл, так как не все браузеры поддерживают MP3.<br/>
+Конвертировать MP3 в OGG и AAC можно на <a href="http://media.io/" target="_blank">Media.io</a> или на <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.<br/>
+<i>Поддержка формата AAC была добавлена для улучшения совместимости с iOS 8.x устройствами (iPhone, iPad)</i>
 
 
 ## Устанавливаем с помощью bower
@@ -157,6 +159,13 @@ ion.sound.play("my_cool_sound", {
     volume: 0.2,
     loop: 3
 });
+
+// Отслеживаем окончание воспроизведения звука
+ion.sound.play("my_cool_sound", {
+    onEnded: function (name) {
+        console.log("Just finished: " + name);
+    }
+});
 ```
 
 ### ion.sound.pause
@@ -193,6 +202,7 @@ ion.sound.destroy();
 
 
 ## История обновлений
+* 2.1.0: 25 октября 2014 - исправлен баг #12. Добавлена поддержка .aac. Добавен коллбэк onEnded.
 * 2.0.2: 08 августа 2014 - новый метод - пауза. Добавлена поддержка bower
 * 2.0.1: 01 августа 2014 - 2 версии плагина, с jQuery-зависимостью и без
 * 2.0.0: 31 июня 2014 - убрана зависимость от jQuery. Новое API. Возможность повторного воспроизведения звуков

@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 2.0.2 Build 34
+ * version 2.1.0 Build 42
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -46,7 +46,6 @@ var ion = ion || {};
     var settings = {},
         sounds = {},
         sounds_num,
-        can_play_mp3,
         ext,
         i;
 
@@ -59,6 +58,7 @@ var ion = ion || {};
         this.loop = false;
         this.paused = false;
         this.sound = null;
+        this.callback = null;
 
         if ("volume" in options) {
             this.volume = +options.volume;
@@ -85,7 +85,7 @@ var ion = ion || {};
                 obj = {};
             }
 
-            if (obj.volume) {
+            if (obj.volume || obj.volume === 0) {
                 this.volume = +obj.volume;
                 this.sound.volume = this.volume;
             }
@@ -99,6 +99,10 @@ var ion = ion || {};
             } else {
                 this.loop = false;
                 this._play();
+            }
+
+            if (obj.onEnded && typeof obj.onEnded === "function") {
+                this.callback = obj.onEnded;
             }
         },
 
@@ -131,6 +135,10 @@ var ion = ion || {};
                 this.loop -= 1;
                 this._play();
             }
+
+            if (this.callback) {
+                this.callback(this.name);
+            }
         },
 
         pause: function () {
@@ -158,17 +166,25 @@ var ion = ion || {};
 
 
     var checkSupport = function () {
-        var sound_item = new Audio();
-        can_play_mp3 = sound_item.canPlayType("audio/mpeg");
+        var sound_item = new Audio(),
+            can_play_mp3 = sound_item.canPlayType("audio/mpeg"),
+            can_play_ogg = sound_item.canPlayType("audio/ogg; codecs='vorbis'"),
+            can_play_aac = sound_item.canPlayType("audio/mp4; codecs='mp4a.40.2'");
 
-        switch (can_play_mp3) {
-            case "probably":
-            case "maybe":
-                ext = ".mp3";
-                break;
-            default:
-                ext = ".ogg";
-                break;
+        if (can_play_mp3 === "probably") {
+            ext = ".mp3";
+        } else if (can_play_aac === "probably") {
+            ext = ".ogg";
+        } else if (can_play_ogg === "probably") {
+            ext = ".aac";
+        } else if (can_play_aac === "maybe") {
+            ext = ".aac";
+        } else if (can_play_mp3 === "maybe") {
+            ext = ".ogg";
+        } else if (can_play_ogg === "maybe") {
+            ext = ".mp3";
+        } else {
+            ext = ".wav";
         }
 
         sound_item = null;

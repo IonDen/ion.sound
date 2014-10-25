@@ -1,10 +1,10 @@
-# Ion.Sound 2.0.2
+# Ion.Sound 2.1.0
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.0.2.zip">Download ion.sound-2.0.2.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.0.zip">Download ion.sound-2.1.0.zip</a>
 
 ***
 
@@ -44,9 +44,11 @@ Import this libraries:
 Prepare sound-files (25 sounds are included) and put them in some folder (eg. "sounds"):
 * my_cool_sound.mp3
 * my_cool_sound.ogg
+* my_cool_sound.aac
 
-It is not enough to have only Mp3-file, you should make Ogg-file too, because not all browsers support Mp3.<br/>
-You can easily convert you Mp3-s to Ogg-s at <a href="http://media.io/" target="_blank">Media.io</a> or at <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.
+It is not enough to have only MP3-file, you should make OGG and AAC-file too, because not all browsers support MP3.<br/>
+You can easily convert you MP3-s to OGG-s and AAC-s at <a href="http://media.io/" target="_blank">Media.io</a> or at <a href="https://cloudconvert.org/formats#audio" target="_blank">CloudConvert.org</a>.<br/>
+<i>AAC support was added to improve cross browser support of iOS 8.x devices (iPhone, iPad)</i>
 
 
 ## Install with bower
@@ -159,6 +161,13 @@ ion.sound.play("my_cool_sound", {
     volume: 0.2,
     loop: 3
 });
+
+// Add a callback on sound stops
+ion.sound.play("my_cool_sound", {
+    onEnded: function (name) {
+        console.log("Just finished: " + name);
+    }
+});
 ```
 
 ### ion.sound.pause
@@ -195,6 +204,7 @@ ion.sound.destroy();
 
 
 ## Update history
+* 2.1.0: October 25, 2014 - Fixed bug #12. AAC files support. Callback onEnded.
 * 2.0.2: August 08, 2014 - New pause method. Add bower support
 * 2.0.1: August 01, 2014 - 2 versions of plugin, jQuery and non-jQuery
 * 2.0.0: June 31, 2014 - dropped jQuery dependency, new API, loop sounds feature
