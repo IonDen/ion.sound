@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 2.1.1 Build 43
+ * version 2.1.2 Build 45
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -43,7 +43,10 @@ var ion = ion || {};
 
 
 
-    var settings = {},
+    var Sound,
+        is_iOS = /iPad|iPhone/.test(navigator.appVersion),
+        global_sound,
+        settings = {},
         sounds = {},
         sounds_num,
         ext,
@@ -51,125 +54,183 @@ var ion = ion || {};
 
 
 
-    var Sound = function (options) {
-        this.name = options.name;
-        this.volume = settings.volume || 0.5;
-        this.preload = settings.preload ? "auto" : "none";
-        this.loop = false;
-        this.paused = false;
-        this.sound = null;
-        this.callback = null;
+    if (is_iOS) {
 
-        if ("volume" in options) {
-            this.volume = +options.volume;
+        Sound = function (options) {
+            this.name = options.name;
+            this.loop = false;
+            this.paused = false;
+            this.sound = null;
+            this.callback = null;
+        };
+
+        Sound.prototype = {
+            init: function () {
+                this.sound = global_sound;
+            },
+
+            play: function (obj) {
+                if (!obj) {
+                    obj = {};
+                }
+
+                if (obj.loop) {
+                    if (this.paused) {
+                        this._playLoop(this.loop + 1);
+                    } else {
+                        this._playLoop(obj.loop);
+                    }
+                } else {
+                    this.loop = false;
+                    this._play();
+                }
+
+                if (obj.onEnded && typeof obj.onEnded === "function") {
+                    this.callback = obj.onEnded;
+                }
+            },
+
+            _play: function () {
+                if (this.paused) {
+                    this.paused = false;
+                } else {
+                    try {
+                        this.sound.currentTime = 0;
+                    } catch (e) {}
+                }
+
+                this.sound.removeEventListener("ended");
+                this.sound.addEventListener("ended", this._ended.bind(this), false);
+                this.sound.src = settings.path + this.name + ext;
+                this.sound.load();
+                this.sound.play();
+            }
         }
 
-        if ("preload" in options) {
-            this.preload = options.preload ? "auto" : "none"
+    } else {
+
+        Sound = function (options) {
+            this.name = options.name;
+            this.volume = settings.volume || 0.5;
+            this.preload = settings.preload ? "auto" : "none";
+            this.loop = false;
+            this.paused = false;
+            this.sound = null;
+            this.callback = null;
+
+            if ("volume" in options) {
+                this.volume = +options.volume;
+            }
+
+            if ("preload" in options) {
+                this.preload = options.preload ? "auto" : "none"
+            }
+        };
+
+        Sound.prototype = {
+            init: function () {
+                this.sound = new Audio();
+                this.sound.src = settings.path + this.name + ext;
+                this.sound.load();
+                this.sound.preload = this.preload;
+                this.sound.volume = this.volume;
+
+                this.sound.addEventListener("ended", this._ended.bind(this), false);
+            },
+
+            play: function (obj) {
+                if (!obj) {
+                    obj = {};
+                }
+
+                if (obj.volume || obj.volume === 0) {
+                    this.volume = +obj.volume;
+                    this.sound.volume = this.volume;
+                }
+
+                if (obj.loop) {
+                    if (this.paused) {
+                        this._playLoop(this.loop + 1);
+                    } else {
+                        this._playLoop(obj.loop);
+                    }
+                } else {
+                    this.loop = false;
+                    this._play();
+                }
+
+                if (obj.onEnded && typeof obj.onEnded === "function") {
+                    this.callback = obj.onEnded;
+                }
+            },
+
+            _play: function () {
+                if (this.paused) {
+                    this.paused = false;
+                } else {
+                    try {
+                        this.sound.currentTime = 0;
+                    } catch (e) {}
+                }
+
+                this.sound.play();
+            }
+        };
+
+    }
+
+    Sound.prototype._playLoop = function (loop) {
+        if (typeof loop === "boolean") {
+            // FF 3.6 and iOS,
+            // sound.loop = true not supported or buggy
+            this.loop = 9999999;
+            this._play();
+        } else if (typeof loop === "number") {
+            this.loop = loop - 1;
+            this._play();
         }
     };
 
-    Sound.prototype = {
-        init: function () {
-            this.sound = new Audio();
-            this.sound.src = settings.path + this.name + ext;
-            this.sound.load();
-            this.sound.preload = this.preload;
-            this.sound.volume = this.volume;
-
-            this.sound.addEventListener("ended", this._ended.bind(this), false);
-        },
-
-        play: function (obj) {
-            if (!obj) {
-                obj = {};
-            }
-
-            if (obj.volume || obj.volume === 0) {
-                this.volume = +obj.volume;
-                this.sound.volume = this.volume;
-            }
-
-            if (obj.loop) {
-                if (this.paused) {
-                    this._playLoop(this.loop + 1);
-                } else {
-                    this._playLoop(obj.loop);
-                }
-            } else {
-                this.loop = false;
-                this._play();
-            }
-
-            if (obj.onEnded && typeof obj.onEnded === "function") {
-                this.callback = obj.onEnded;
-            }
-        },
-
-        _play: function () {
-            if (this.paused) {
-                this.paused = false;
-            } else {
-                try {
-                    this.sound.currentTime = 0;
-                } catch (e) {}
-            }
-
-            this.sound.play();
-        },
-
-        _playLoop: function (loop) {
-            if (typeof loop === "boolean") {
-                // FF 3.6 and iOS,
-                // sound.loop = true not supported or buggy
-                this.loop = 9999999;
-                this._play();
-            } else if (typeof loop === "number") {
-                this.loop = loop - 1;
-                this._play();
-            }
-        },
-
-        _ended: function () {
-            if (this.loop > 0) {
-                this.loop -= 1;
-                this._play();
-            }
-
-            if (this.callback) {
-                this.callback(this.name);
-            }
-        },
-
-        pause: function () {
-            this.paused = true;
-            this.sound.pause();
-        },
-
-        stop: function () {
-            this.loop = false;
-            this.sound.pause();
-
-            try {
-                this.sound.currentTime = 0;
-            } catch (e) {}
-        },
-
-        destroy: function () {
-            this.stop();
-            this.sound.removeEventListener("ended", this._ended.bind(this), false);
-            this.sound.src = "";
-            this.sound = null;
+    Sound.prototype._ended = function () {
+        if (this.loop > 0) {
+            this.loop -= 1;
+            this._play();
         }
+
+        if (this.callback) {
+            this.callback(this.name);
+        }
+    };
+
+    Sound.prototype.pause = function () {
+        this.paused = true;
+        this.sound.pause();
+    };
+
+    Sound.prototype.stop = function () {
+        this.loop = false;
+        this.sound.pause();
+
+        try {
+            this.sound.currentTime = 0;
+        } catch (e) {}
+    };
+
+    Sound.prototype.destroy = function () {
+        this.stop();
+        this.sound.removeEventListener("ended", this._ended.bind(this), false);
+        this.sound.src = "";
+        this.sound = null;
     };
 
 
 
     var checkSupport = function () {
-        var sound_item = new Audio(),
-            can_play_mp3 = sound_item.canPlayType("audio/mpeg"),
-            can_play_ogg = sound_item.canPlayType("audio/ogg; codecs='vorbis'"),
-            can_play_aac = sound_item.canPlayType("audio/mp4; codecs='mp4a.40.2'");
+        global_sound = new Audio();
+
+        var can_play_mp3 = global_sound.canPlayType('audio/mpeg'),
+            can_play_ogg = global_sound.canPlayType('audio/ogg'),
+            can_play_aac = global_sound.canPlayType('audio/mp4');
 
         if (can_play_mp3 === "probably") {
             ext = ".mp3";
@@ -186,8 +247,6 @@ var ion = ion || {};
         } else {
             ext = ".wav";
         }
-
-        sound_item = null;
     };
 
     var createSound = function (obj) {
@@ -216,7 +275,7 @@ var ion = ion || {};
         }
     };
 
-    ion.sound.version = "2.0.2";
+    ion.sound.version = "2.1.2";
 
     ion.sound.play = function (name, options) {
         if (sounds[name]) {

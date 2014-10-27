@@ -1,10 +1,10 @@
-# Ion.Sound 2.1.1
+# Ion.Sound 2.1.2
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.1.zip">Download ion.sound-2.1.1.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.2.zip">Download ion.sound-2.1.2.zip</a>
 
 ***
 
@@ -204,6 +204,7 @@ ion.sound.destroy();
 
 
 ## Update history
+* 2.1.2: October 26, 2014 - Fixed bug in iOS 8.x #15
 * 2.1.1: October 25, 2014 - Minor fix.
 * 2.1.0: October 25, 2014 - Fixed bug #12. AAC files support. Callback onEnded.
 * 2.0.2: August 08, 2014 - New pause method. Add bower support

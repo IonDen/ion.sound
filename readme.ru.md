@@ -1,10 +1,10 @@
-# Ion.Sound 2.1.1
+# Ion.Sound 2.1.2
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 JavaScript-плагин для воспроизведения звуков
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.1.zip">Скачать ion.sound-2.1.1.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.2.zip">Скачать ion.sound-2.1.2.zip</a>
 
 ***
 
@@ -202,6 +202,7 @@ ion.sound.destroy();
 
 
 ## История обновлений
+* 2.1.2: 26 октября 2014 - исправлен баг в iOS 8.x #15
 * 2.1.1: 25 октября 2014 - мини-фикс.
 * 2.1.0: 25 октября 2014 - исправлен баг #12. Добавлена поддержка .aac. Добавен коллбэк onEnded.
 * 2.0.2: 08 августа 2014 - новый метод - пауза. Добавлена поддержка bower
