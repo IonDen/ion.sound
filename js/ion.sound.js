@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 2.1.2 Build 45
+ * version 2.1.3 Build 47
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -230,22 +230,34 @@ var ion = ion || {};
 
         var can_play_mp3 = global_sound.canPlayType('audio/mpeg'),
             can_play_ogg = global_sound.canPlayType('audio/ogg'),
-            can_play_aac = global_sound.canPlayType('audio/mp4');
+            can_play_aac = global_sound.canPlayType('audio/mp4; codecs="mp4a.40.2"');
 
-        if (can_play_mp3 === "probably") {
-            ext = ".mp3";
-        } else if (can_play_aac === "probably") {
-            ext = ".aac";
-        } else if (can_play_ogg === "probably") {
-            ext = ".ogg";
-        } else if (can_play_aac === "maybe") {
-            ext = ".aac";
-        } else if (can_play_mp3 === "maybe") {
-            ext = ".mp3";
-        } else if (can_play_ogg === "maybe") {
-            ext = ".ogg";
+        if (is_iOS) {
+
+            if (can_play_mp3 === "probably") {
+                ext = ".mp3";
+            } else if (can_play_aac === "probably") {
+                ext = ".aac";
+            } else if (can_play_mp3 === "maybe") {
+                ext = ".mp3";
+            } else if (can_play_aac === "maybe") {
+                ext = ".aac";
+            }
+
         } else {
-            ext = ".wav";
+
+            if (can_play_mp3 === "probably") {
+                ext = ".mp3";
+            } else if (can_play_ogg === "probably") {
+                ext = ".ogg";
+            } else if (can_play_mp3 === "maybe") {
+                ext = ".mp3";
+            } else if (can_play_ogg === "maybe") {
+                ext = ".ogg";
+            } else {
+                ext = ".wav";
+            }
+
         }
     };
 
@@ -275,7 +287,7 @@ var ion = ion || {};
         }
     };
 
-    ion.sound.version = "2.1.2";
+    ion.sound.version = "2.1.3";
 
     ion.sound.play = function (name, options) {
         if (sounds[name]) {

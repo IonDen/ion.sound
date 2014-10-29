@@ -1,10 +1,10 @@
-# Ion.Sound 2.1.2
+# Ion.Sound 2.1.3
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.2.zip">Download ion.sound-2.1.2.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-2.1.3.zip">Download ion.sound-2.1.3.zip</a>
 
 ***
 
@@ -54,8 +54,6 @@ You can easily convert you MP3-s to OGG-s and AAC-s at <a href="http://media.io/
 ## Install with bower
 * bower install ionsound
 
-## Install with spm
-* spm install ion-sound
 
 ## Initialisation
 To initialise plugin call this method:
@@ -206,6 +204,7 @@ ion.sound.destroy();
 
 
 ## Update history
+* 2.1.3: October 29, 2014 - Fixed bug FF and IE #18
 * 2.1.2: October 26, 2014 - Fixed bug in iOS 8.x #15
 * 2.1.1: October 25, 2014 - Minor fix.
 * 2.1.0: October 25, 2014 - Fixed bug #12. AAC files support. Callback onEnded.

@@ -1,6 +1,6 @@
 {
     "name": "ion-sound",
-    "version": "2.1.2",
+    "version": "2.1.3",
     "description": "JavaScript plugin for playing sounds on user actions and events",
     "keywords": [
         "sound",
@@ -25,7 +25,8 @@
         "url": "https://github.com/IonDen/ion.sound/issues"
     },
     "license": "MIT",
+
     "spm": {
-        "main": "js/ion.sound.js"
+        "main": "ion.sound.js"
     }
 }
