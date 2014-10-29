@@ -1,0 +1,31 @@
+﻿{
+    "name": "ion-sound",
+    "version": "2.1.2",
+    "description": "JavaScript plugin for playing sounds on user actions and events",
+    "keywords": [
+        "sound",
+        "sounds",
+        "audio",
+        "html5",
+        "events",
+        "alert",
+        "effect",
+        "mp3",
+        "ogg",
+        "aac",
+        "ui"
+    ],
+    "author": "IonDen <https://github.com/IonDen>",
+    "homepage": "http://ionden.com/a/plugins/ion.sound/en.html",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/IonDen/ion.sound"
+    },
+    "bugs": {
+        "url": "https://github.com/IonDen/ion.sound/issues"
+    },
+    "license": "MIT",
+    "spm": {
+        "main": "ion.sound.js"
+    }
+}
