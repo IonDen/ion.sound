@@ -55,6 +55,10 @@ JavaScript-плагин для воспроизведения звуков
 * bower install ionsound
 
 
+## Устанавливаем с помощью spm [![](http://spmjs.io/badge/ion-sound)](http://spmjs.io/package/ion-sound)
+* spm install ion-sound
+
+
 ## Инициализация
 Инициализируем плагин:
 ```javascript
