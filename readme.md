@@ -54,6 +54,8 @@ You can easily convert you MP3-s to OGG-s and AAC-s at <a href="http://media.io/
 ## Install with bower
 * bower install ionsound
 
+## Install with spm
+* spm install ion-sound
 
 ## Initialisation
 To initialise plugin call this method:
