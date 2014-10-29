@@ -26,6 +26,6 @@
     },
     "license": "MIT",
     "spm": {
-        "main": "ion.sound.js"
+        "main": "js/ion.sound.js"
     }
 }
