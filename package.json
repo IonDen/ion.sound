@@ -1,5 +1,5 @@
 {
-    "name": "ion-sound",
+    "name": "ion.sound",
     "version": "2.1.2",
     "description": "JavaScript plugin for playing sounds on user actions and events",
     "keywords": [
@@ -26,6 +26,6 @@
     },
     "license": "MIT",
     "spm": {
-        "main": "ion.sound.js"
+        "main": "js/ion.sound.js"
     }
 }
