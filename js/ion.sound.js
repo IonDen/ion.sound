@@ -173,6 +173,7 @@ var ion = ion || {};
                     } catch (e) {}
                 }
 
+                this.sound.load();
                 this.sound.play();
             }
         };
