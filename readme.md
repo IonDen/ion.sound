@@ -1,3 +1,5 @@
+> Version 3.0 coming soon. Web Audio API, Audio sprites and some more cool stuff is on the way!
+
 # Ion.Sound 2.1.3
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
