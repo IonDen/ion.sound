@@ -1,6 +1,6 @@
 ﻿/**
  * jQuery.Ion.Sound
- * version 2.1.4
+ * version 2.1.5
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -56,6 +56,7 @@
 
         Sound = function (options) {
             this.name = options.name;
+            this.filename = options.fileName;
             this.loop = false;
             this.paused = false;
             this.sound = null;
@@ -99,7 +100,7 @@
 
                 this.sound.removeEventListener("ended");
                 this.sound.addEventListener("ended", this._ended.bind(this), false);
-                this.sound.src = this.path + this.name + ext;
+                this.sound.src = this.path + this.fileName + ext;
                 this.sound.load();
                 this.sound.play();
             }
@@ -115,7 +116,7 @@
             this.paused = false;
             this.sound = null;
             this.callback = null;
-            this.path = (options.path === undefined) ? settings.path : options.path || "";
+            this.fileName = options.name;
 
             if ("volume" in options) {
                 this.volume = +options.volume;
@@ -124,12 +125,16 @@
             if ("preload" in options) {
                 this.preload = options.preload ? "auto" : "none"
             }
+
+            if ("fileName" in options) {
+                this.fileName = (options.fileName === '') ? options.name : options.fileName;
+            }
         };
 
         Sound.prototype = {
             init: function () {
                 this.sound = new Audio();
-                this.sound.src = this.path + this.name + ext;
+                this.sound.src = this.path + this.fileName + ext;
                 this.sound.load();
                 this.sound.preload = this.preload;
                 this.sound.volume = this.volume;
@@ -172,7 +177,6 @@
                     } catch (e) {}
                 }
 
-                this.sound.load();
                 this.sound.play();
             }
         };
