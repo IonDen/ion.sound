@@ -101,7 +101,7 @@ And play sound!
 // Simple
 ion.sound.play("my_cool_sound");
 
-// Simple
+// Example #2
 ion.sound.play("button_push");
 ```
 
@@ -124,8 +124,8 @@ ion.sound.play("button_push");
                 <code>name: "sound_name"</code> name of the sound file, without extension, !required<br/>
                 <code>volume: 0.2</code> override default volume<br/>
                 <code>preload: true</code> override default preload setting<br/>
-                <code>path: "sound/path/"</code> Optional property, set path to folder of a specific sound to override default setting, if not set will default to the default <code>path:</code> setting.<br/>
-                <code>fileName: "other_name"</code> Optional property, override default file name ("sound_name"), if not set will default to <code>name:  "sound_name"</code> setting.
+                <code>path: "sound/path/"</code> Optional property, set path to a directory of a specific sound to override default setting, if not set will default to the default <code>path:</code> setting.<br/>
+                <code>fileName: "other_name"</code> Optional property, override default file name, if not set will default to <code>name:  "sound_name"</code> setting.
             </td>
         </tr>
         <tr>
