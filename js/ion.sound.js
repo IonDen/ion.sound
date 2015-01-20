@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 2.1.3 Build 47
+ * version 2.1.4
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -101,7 +101,7 @@ var ion = ion || {};
 
                 this.sound.removeEventListener("ended");
                 this.sound.addEventListener("ended", this._ended.bind(this), false);
-                this.sound.src = settings.path + this.name + ext;
+                 this.sound.src = this.path + this.name + ext;
                 this.sound.load();
                 this.sound.play();
             }
@@ -117,6 +117,7 @@ var ion = ion || {};
             this.paused = false;
             this.sound = null;
             this.callback = null;
+            this.path = (options.path === undefined) ? settings.path : options.path || "";
 
             if ("volume" in options) {
                 this.volume = +options.volume;
@@ -130,7 +131,7 @@ var ion = ion || {};
         Sound.prototype = {
             init: function () {
                 this.sound = new Audio();
-                this.sound.src = settings.path + this.name + ext;
+                this.sound.src = this.path + this.name + ext;
                 this.sound.load();
                 this.sound.preload = this.preload;
                 this.sound.volume = this.volume;
