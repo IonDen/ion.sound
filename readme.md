@@ -86,7 +86,7 @@ ion.sound({
         },
         {
             name: "button_push",
-            fileName: 'file-of-a-strange-name',
+            filename: 'file-of-a-strange-name',
             volume: 0.6
         }
     ],
@@ -125,7 +125,7 @@ ion.sound.play("button_push");
                 <code>volume: 0.2</code> override default volume<br/>
                 <code>preload: true</code> override default preload setting<br/>
                 <code>path: "sound/path/"</code> Optional property, set path to a directory of a specific sound to override default setting, if not set will default to the default <code>path:</code> setting.<br/>
-                <code>fileName: "other_name"</code> Optional property, override default file name, if not set will default to <code>name:  "sound_name"</code> setting.
+                <code>filename: "other_name"</code> Optional property, override default file name, if not set will default to <code>name:  "sound_name"</code> setting.
             </td>
         </tr>
         <tr>
