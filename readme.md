@@ -77,6 +77,17 @@ ion.sound({
             name: "alert_sound",
             volume: 0.3,
             preload: false
+        },
+        {
+            name: "bell_ring",
+            path: "path/to/your/sound/",
+            volume: 0.1,
+            preload: false
+        },
+        {
+            name: "button_push",
+            filename: 'file-of-a-strange-name',
+            volume: 0.6
         }
     ],
     volume: 0.5,
@@ -89,6 +100,9 @@ And play sound!
 ```javascript
 // Simple
 ion.sound.play("my_cool_sound");
+
+// Example #2
+ion.sound.play("button_push");
 ```
 
 
@@ -109,7 +123,9 @@ ion.sound.play("my_cool_sound");
                 You should set your own sounds collection here. This is an array of objects. Sound object structure:<br/>
                 <code>name: "sound_name"</code> name of the sound file, without extension, !required<br/>
                 <code>volume: 0.2</code> override default volume<br/>
-                <code>preload: true</code> override default preload setting
+                <code>preload: true</code> override default preload setting<br/>
+                <code>path: "sound/path/"</code> Optional property, set path to a directory of a specific sound to override default setting, if not set will default to the default <code>path:</code> setting.<br/>
+                <code>filename: "other_name"</code> Optional property, override default file name, if not set will default to <code>name:  "sound_name"</code> setting.
             </td>
         </tr>
         <tr>

@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 2.1.3 Build 47
+ * version 2.1.3
  * © 2014 Denis Ineshin | IonDen.com
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -58,6 +58,8 @@ var ion = ion || {};
 
         Sound = function (options) {
             this.name = options.name;
+            this.filename = options.filename || options.name;
+            this.path = options.path || settings.path;
             this.loop = false;
             this.paused = false;
             this.sound = null;
@@ -70,6 +72,7 @@ var ion = ion || {};
             },
 
             play: function (obj) {
+
                 if (!obj) {
                     obj = {};
                 }
@@ -91,6 +94,7 @@ var ion = ion || {};
             },
 
             _play: function () {
+
                 if (this.paused) {
                     this.paused = false;
                 } else {
@@ -101,7 +105,7 @@ var ion = ion || {};
 
                 this.sound.removeEventListener("ended");
                 this.sound.addEventListener("ended", this._ended.bind(this), false);
-                this.sound.src = settings.path + this.name + ext;
+                this.sound.src = this.path + this.filename + ext;
                 this.sound.load();
                 this.sound.play();
             }
@@ -111,6 +115,8 @@ var ion = ion || {};
 
         Sound = function (options) {
             this.name = options.name;
+            this.filename = options.filename || options.name;
+            this.path = options.path || settings.path;
             this.volume = settings.volume || 0.5;
             this.preload = settings.preload ? "auto" : "none";
             this.loop = false;
@@ -130,7 +136,6 @@ var ion = ion || {};
         Sound.prototype = {
             init: function () {
                 this.sound = new Audio();
-                this.sound.src = settings.path + this.name + ext;
                 this.sound.load();
                 this.sound.preload = this.preload;
                 this.sound.volume = this.volume;
@@ -173,6 +178,7 @@ var ion = ion || {};
                     } catch (e) {}
                 }
 
+                this.sound.src = this.path + this.filename + ext;
                 this.sound.load();
                 this.sound.play();
             }
