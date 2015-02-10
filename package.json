@@ -1,11 +1,13 @@
 {
     "name": "ion-sound",
-    "version": "2.1.3",
+    "version": "3.0.0",
     "description": "JavaScript plugin for playing sounds on user actions and events",
     "keywords": [
         "sound",
         "sounds",
+        "web",
         "audio",
+        "api",
         "html5",
         "events",
         "alert",
