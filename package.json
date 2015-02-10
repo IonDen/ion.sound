@@ -1,7 +1,13 @@
 {
     "name": "ion-sound",
     "version": "3.0.0",
-    "description": "JavaScript plugin for playing sounds on user actions and events",
+    "description": "JavaScript plugin for playing sounds and music in web",
+    "homepage": "http://ionden.com/a/plugins/ion.sound/en.html",
+    "author": {
+        "name": "Denis Ineshin (IonDen)",
+        "email": "ionden.tech@gmail.com",
+        "url": "https://github.com/IonDen"
+    },
     "keywords": [
         "sound",
         "sounds",
@@ -17,8 +23,7 @@
         "aac",
         "ui"
     ],
-    "author": "IonDen <https://github.com/IonDen>",
-    "homepage": "http://ionden.com/a/plugins/ion.sound/en.html",
+    "main": "js/ion.sound.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/IonDen/ion.sound"
