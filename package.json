@@ -1,6 +1,6 @@
 {
     "name": "ion-sound",
-    "version": "3.0.0",
+    "version": "3.0.2",
     "description": "JavaScript plugin for playing sounds and music in web",
     "homepage": "http://ionden.com/a/plugins/ion.sound/en.html",
     "author": {
@@ -23,7 +23,10 @@
         "aac",
         "ui"
     ],
-    "main": "js/ion.sound.js",
+    "main": "./js/ion.sound.js",
+    "directories": {
+        "lib": "js"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/IonDen/ion.sound"
