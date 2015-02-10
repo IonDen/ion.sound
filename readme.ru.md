@@ -220,3 +220,5 @@ ion.sound.play("my_cool_sound");
 
 
 ## <a href="history.md">История обновлений</a>
+
+[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
