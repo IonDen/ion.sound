@@ -64,6 +64,8 @@ Can i use <a href="http://caniuse.com/#feat=audio-api" target="_blank">Web Audio
 ## Устанавливаем с помощью bower
 * bower install ionsound
 
+## Устнавливаем с помощью npm
+* npm install ion-sound
 
 ## Устанавливаем с помощью spm [![](http://spmjs.io/badge/ion-sound)](http://spmjs.io/package/ion-sound)
 * spm install ion-sound

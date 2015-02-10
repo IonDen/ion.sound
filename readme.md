@@ -64,6 +64,8 @@ You can easily convert you MP3-s to OGG-s and AAC-s at <a href="http://media.io/
 ## Install with bower
 * bower install ionsound
 
+## Install with npm
+* npm install ion-sound
 
 ## Install with spm [![](http://spmjs.io/badge/ion-sound)](http://spmjs.io/package/ion-sound)
 * spm install ion-sound
