@@ -29,7 +29,7 @@
                 console.log(text);
             }
 
-            var d = $("#debug");
+            var d = $ && $("#debug");
             if (d.length) {
                 var a = d.html();
                 d.html(a + text + '<br/>');
@@ -987,4 +987,4 @@
         }
     };
 
-} (window, navigator, jQuery || $));
+} (window, navigator, window.jQuery || window.$));
