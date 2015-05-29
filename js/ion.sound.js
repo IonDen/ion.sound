@@ -30,7 +30,7 @@
             }
 
             var d = $ && $("#debug");
-            if (d.length) {
+            if (d && d.length) {
                 var a = d.html();
                 d.html(a + text + '<br/>');
             }
