@@ -1,5 +1,9 @@
 # Ion.Sound Update History
 
+### Version 3.0.1. May 29, 2015
+* Master volume added. Issues: #28, #38
+* Fixed bugs #30, #31
+
 ### Version 3.0.0. February 10, 2015
 * New Web Audio API core
 * HTML5 fallback remastered

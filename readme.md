@@ -1,10 +1,10 @@
-# Ion.Sound 3.0.0
+# Ion.Sound 3.0.1
 
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.0.zip">Download ion.sound-3.0.0.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.1.zip">Download ion.sound-3.0.1.zip</a>
 
 ***
 
