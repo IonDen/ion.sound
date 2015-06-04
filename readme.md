@@ -1,5 +1,7 @@
 # Ion.Sound 3.0.1
 
+[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+
 > English description | <a href="readme.ru.md">Описание на русском</a>
 
 JavaScript plugin for playing sounds on user actions and page events.
