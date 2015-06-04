@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 3.0.1 Build 81
+ * version 3.0.4 Build 82
  * © Denis Ineshin, 2015
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -122,13 +122,11 @@
         }
 
         for (i = 0; i < sounds_num; i++) {
-            if (!sounds[i]) {
-                createSound(settings.sounds[i]);
-            }
+            createSound(settings.sounds[i]);
         }
     };
 
-    ion.sound.VERSION = "3.0.1";
+    ion.sound.VERSION = "3.0.4";
 
     ion.sound._method = function (method, name, options) {
         if (name) {

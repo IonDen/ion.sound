@@ -1,10 +1,10 @@
-# Ion.Sound 3.0.1
+# Ion.Sound 3.0.4
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 JavaScript-плагин для воспроизведения звуков
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.1.zip">Скачать ion.sound-3.0.1.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.4.zip">Скачать ion.sound-3.0.4.zip</a>
 
 ***
 

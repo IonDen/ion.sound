@@ -1,5 +1,9 @@
 # Ion.Sound Update History
 
+### Version 3.0.4. June 04, 2015
+* Version jump to fix nmp
+* Fixed bug #42
+
 ### Version 3.0.1. May 29, 2015
 * Master volume added. Issues: #28, #38
 * Fixed bugs #30, #31
