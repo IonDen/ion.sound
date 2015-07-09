@@ -9,7 +9,7 @@ JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.4.zip">Download ion.sound-3.0.4.zip</a>
 
 ***
-*<sup><a href="https://github.com/IonDen/ion.rangeSlider/blob/master/designer.md">Designer wanted</a></sup>*
+*<sup><a href="https://github.com/IonDen/ion.rangeSlider/blob/master/designer.md">Designer wanted to create a project logo</a></sup>*
 
 ## Description
 * Ion.Sound — JavaScript-plugin for playing sounds based on Web Audio API.
