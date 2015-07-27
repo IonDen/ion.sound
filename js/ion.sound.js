@@ -294,7 +294,7 @@
                 return;
             }
 
-            if (this.result.status !== 200) {
+            if (this.result.status !== 200 && this.result.status !== 0) {
                 warn(this.url + " was not found on server!");
                 this.reload();
                 return;
