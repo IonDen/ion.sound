@@ -1,5 +1,8 @@
 # Ion.Sound Update History
 
+### Version 3.0.5. July 27, 2015
+* Fixed bug #44
+
 ### Version 3.0.4. June 04, 2015
 * Version jump to fix nmp
 * Fixed bug #42

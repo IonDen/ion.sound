@@ -1,4 +1,4 @@
-# Ion.Sound 3.0.4
+# Ion.Sound 3.0.5
 
 [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
 
@@ -6,7 +6,7 @@
 
 JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.4.zip">Download ion.sound-3.0.4.zip</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.5.zip">Download ion.sound-3.0.5.zip</a>
 
 ***
 *<sup><a href="https://github.com/IonDen/ion.rangeSlider/blob/master/designer.md">Designer wanted to create a project logo</a></sup>*

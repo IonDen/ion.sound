@@ -1,6 +1,6 @@
 ﻿/**
  * Ion.Sound
- * version 3.0.4 Build 82
+ * version 3.0.5 Build 85
  * © Denis Ineshin, 2015
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
@@ -126,7 +126,7 @@
         }
     };
 
-    ion.sound.VERSION = "3.0.4";
+    ion.sound.VERSION = "3.0.5";
 
     ion.sound._method = function (method, name, options) {
         if (name) {
@@ -493,6 +493,8 @@
                 this.loop = 9999999;
             } else if (typeof options.loop === "number") {
                 this.loop = +options.loop - 1;
+            } else {
+                this.loop = false;
             }
         },
 
@@ -914,6 +916,8 @@
                 this.loop = 9999999;
             } else if (typeof options.loop === "number") {
                 this.loop = +options.loop - 1;
+            } else {
+                this.loop = false;
             }
         },
 
