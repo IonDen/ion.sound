@@ -1,6 +1,6 @@
 # Ion.Sound Update History
 
-### Version 3.0.6. July 27, 2015
+### Version 3.0.6. August 04, 2015
 * Fixed bug #49
 * Attempt to fix #35
 
