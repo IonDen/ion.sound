@@ -1,6 +1,6 @@
 {
     "name": "ion-sound",
-    "version": "3.0.5",
+    "version": "3.0.6",
     "homepage": "https://github.com/IonDen/ion.sound",
     "authors": [
         {
@@ -24,11 +24,11 @@
         "sound",
         "music",
         "html5",
+        "events",
         "WebAudioAPI",
         "mp3",
         "ogg",
-        "aac",
-        "events"
+        "aac"
     ],
     "license": "MIT",
     "ignore": [
