@@ -225,6 +225,10 @@ ion.sound.play("my_cool_sound");
 * Etc.
 
 
-## <a href="history.md">Update history</a>
+### <a href="history.md">Update history</a>
+
+***
+
+Support the plugin:
 
 [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)

@@ -1,4 +1,6 @@
-# Ion.Sound Update History
+![ion.sound](_tmp/logo-ion-sound.png)
+
+# Update History
 
 ### Version 3.0.6. August 04, 2015
 * Fixed bug #49
@@ -71,3 +73,9 @@
 
 ### Version 1.0.0. September 07, 2013
 * Plugin release
+
+***
+
+Support the plugin:
+
+[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
