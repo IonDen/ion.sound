@@ -1,15 +1,16 @@
-# Ion.Sound 3.0.6
-
-[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+![ion.sound](_tmp/logo-ion-sound.png)
 
 > <a href="readme.md">English description</a> | Описание на русском
 
 JavaScript-плагин для воспроизведения звуков
-* <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.6.zip">Скачать ion.sound-3.0.6.zip</a>
 
 ***
-*<sup><a href="https://github.com/IonDen/ion.rangeSlider/blob/master/designer.md">Ищу дизайнера для создания логотипа проекта</a></sup>*
+
+* Версия: 3.0.6
+* <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
+* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.6.zip">Скачать ZIP-архив</a>
+
+[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
 
 ## Описание
 * Ion.Sound — JavaScript-плагин для воспроизведения звуков, основанный на Web Audio API.
