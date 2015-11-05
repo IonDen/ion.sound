@@ -10,8 +10,6 @@ JavaScript plugin for playing sounds on user actions and page events.
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
 * <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.6.zip">Download ZIP</a>
 
-[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
-
 ## Description
 * Ion.Sound — JavaScript-plugin for playing sounds based on Web Audio API.
 * Plugin is working on most popular desktop and mobile browsers and can be used everywhere, from common web sites to browser games.
@@ -229,6 +227,10 @@ ion.sound.play("my_cool_sound");
 
 ***
 
-Support the plugin:
+#### Support Ion-series plugins development:
 
-[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+* Donate through Pledgie service: [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+
+* Donate direct to my Paypal account: https://www.paypal.me/IonDen
+
+* Donate direct to my Yandex.Money account: http://yasobe.ru/na/razrabotku
