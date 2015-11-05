@@ -10,8 +10,6 @@ JavaScript-плагин для воспроизведения звуков
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
 * <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.6.zip">Скачать ZIP-архив</a>
 
-[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
-
 ## Описание
 * Ion.Sound — JavaScript-плагин для воспроизведения звуков, основанный на Web Audio API.
 * Плагин отлично работает на всех десктопных и мобильных браузерах и может быть испльзован как на обычных веб сайтах, так и в играх.
@@ -229,6 +227,10 @@ ion.sound.play("my_cool_sound");
 
 ***
 
-Поддержите плагин:
+#### Поддержите разработку плагинов серии Ion:
 
-[![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+* Пожертвовать через сервис Pledgie: [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+
+* Пожертвовать напрямую через Paypal: https://www.paypal.me/IonDen
+
+* Пожертвовать напрямую через Яндекс.Деньги: http://yasobe.ru/na/razrabotku
