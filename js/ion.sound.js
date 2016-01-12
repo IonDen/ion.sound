@@ -581,7 +581,7 @@
         },
 
         ended: function () {
-            var wasPlaying = this.playing;
+            var was_playing = this.playing;
             this.playing = false;
             this.time_ended = new Date().valueOf();
             this.time_played = (this.time_ended - this.time_started) / 1000;
@@ -591,7 +591,7 @@
                 this._ended();
                 this.clear();
 
-                if (this.loop && wasPlaying) {
+                if (this.loop && was_playing) {
                     this.loop--;
                     this.play();
                 }
