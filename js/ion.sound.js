@@ -1,7 +1,7 @@
-﻿/**
+/**
  * Ion.Sound
  * version 3.0.7 Build 89
- * © Denis Ineshin, 2016
+ * (c) Denis Ineshin, 2017
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
  * GitHub page:     https://github.com/IonDen/ion.sound
@@ -375,9 +375,10 @@
             }
 
             if (!this.loaded) {
-                this.autoplay = true;
-                this.load();
-
+                if (!this.options.preload) {
+                    this.autoplay = true;
+                    this.load();
+                }
                 return;
             }
 
@@ -770,7 +771,6 @@
                 extend(options, this.options);
             }
 
-            console.log(1);
             if (!this.loaded) {
                 if (!this.options.preload) {
                     this.autoplay = true;
