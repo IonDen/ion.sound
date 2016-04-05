@@ -113,6 +113,7 @@
         settings.scope = settings.scope || null;
         settings.ready_callback = settings.ready_callback || null;
         settings.ended_callback = settings.ended_callback || null;
+        settings.allow_cache = typeof settings.allow_cache === 'undefined' ? true : settings.allow_cache;
 
         sounds_num = settings.sounds.length;
 
@@ -254,8 +255,13 @@
         },
 
         createUrl: function () {
-            var no_cache = new Date().valueOf();
-            this.url = this.options.path + encodeURIComponent(this.options.name) + "." + this.options.supported[this.ext] + "?" + no_cache;
+            var url = this.options.path + encodeURIComponent(this.options.name) + "." +
+                        this.options.supported[this.ext];
+
+            if (this.options.allow_cache === true) {
+                url =  url + "?" + new Date().valueOf();
+            }
+            this.url = url;
         },
 
         load: function () {
