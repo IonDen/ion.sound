@@ -10,6 +10,7 @@
  * http://ionden.com/a/plugins/licence-en.html
  */
 
+(function () {
 ;(function (window, navigator, $, undefined) {
     "use strict";
 
@@ -1080,3 +1081,12 @@
     };
 
 } (window, navigator, window.jQuery || window.$));
+  //Add AMD & CommonJS Support
+  if (typeof module !== 'undefined' && module.exports) {
+     module.exports = window.ion;
+  } else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+    define('ion-sound', [], function () {
+      return window.ion;
+    });
+  }
+})();
