@@ -112,6 +112,7 @@
         settings.sprite = settings.sprite || null;
         settings.scope = settings.scope || null;
         settings.ready_callback = settings.ready_callback || null;
+        settings.cache = settings.cache || false;
         settings.ended_callback = settings.ended_callback || null;
 
         sounds_num = settings.sounds.length;
@@ -913,7 +914,7 @@
 
         createUrl: function () {
             var rand = new Date().valueOf();
-            this.url = this.path + encodeURIComponent(this.name) + "." + settings.supported[0] + "?" + rand;
+            this.url = this.path + encodeURIComponent(this.name) + "." + settings.supported[0] + ((this.options.cache) ? "" : "?" + rand);
         },
 
         can_play_through: function () {
