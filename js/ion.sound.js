@@ -107,6 +107,7 @@
         settings.path = settings.path || "";
         settings.volume = settings.volume || 1;
         settings.preload = settings.preload || false;
+        settings.allow_caching = settings.allow_caching || false;
         settings.multiplay = settings.multiplay || false;
         settings.loop = settings.loop || false;
         settings.sprite = settings.sprite || null;
@@ -254,8 +255,11 @@
         },
 
         createUrl: function () {
-            var no_cache = new Date().valueOf();
-            this.url = this.options.path + encodeURIComponent(this.options.name) + "." + this.options.supported[this.ext] + "?" + no_cache;
+            this.url = this.options.path + encodeURIComponent(this.options.name) + "." + this.options.supported[this.ext];
+            if(!this.options.allow_caching) {
+              var no_cache = new Date().valueOf();
+              this.url += "?" + no_cache;
+            }
         },
 
         load: function () {
@@ -864,6 +868,7 @@
         this.multiplay = options.multiplay;
         this.volume = options.volume;
         this.preload = options.preload;
+        this.allow_caching = options.allow_caching;
         this.path = settings.path;
         this.start = options.start || 0;
         this.end = options.end || 0;

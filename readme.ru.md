@@ -6,9 +6,9 @@ JavaScript-плагин для воспроизведения звуков
 
 ***
 
-* Версия: 3.0.7
+* Версия: 3.0.8
 * <a href="http://ionden.com/a/plugins/ion.sound/index.html">Сайт проекта и демо</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.7.zip">Скачать ZIP-архив</a>
+* <a href="https://github.com/supernova-ws/ion.sound/archive/master.zip">Скачать ZIP-архив</a>
 
 ## Описание
 * Ion.Sound — JavaScript-плагин для воспроизведения звуков, основанный на Web Audio API.
@@ -134,6 +134,12 @@ ion.sound.play("my_cool_sound");
             <td>false</td>
             <td>boolean</td>
             <td>Предзагрузка звуков</td>
+        </tr>
+        <tr>
+            <td>allow_caching</td>
+            <td>false</td>
+            <td>boolean</td>
+            <td>Разрешает кэширование звуков браузером, убирая "?timestamp" из URL</td>
         </tr>
         <tr>
             <td>multiplay</td>
