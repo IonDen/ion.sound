@@ -763,7 +763,6 @@
                 extend(options, this.options);
             }
 
-            console.log(1);
             if (!this.loaded) {
                 if (!this.options.preload) {
                     this.autoplay = true;
