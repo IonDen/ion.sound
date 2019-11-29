@@ -1,7 +1,7 @@
-﻿/**
+/**
  * Ion.Sound
  * version 3.0.7 Build 89
- * © Denis Ineshin, 2016
+ * (c) Denis Ineshin, 2017
  *
  * Project page:    http://ionden.com/a/plugins/ion.sound/en.html
  * GitHub page:     https://github.com/IonDen/ion.sound
@@ -113,6 +113,7 @@
         settings.scope = settings.scope || null;
         settings.ready_callback = settings.ready_callback || null;
         settings.ended_callback = settings.ended_callback || null;
+        settings.allow_cache = typeof settings.allow_cache === 'undefined' ? true : settings.allow_cache;
 
         sounds_num = settings.sounds.length;
 
@@ -254,8 +255,13 @@
         },
 
         createUrl: function () {
-            var no_cache = new Date().valueOf();
-            this.url = this.options.path + encodeURIComponent(this.options.name) + "." + this.options.supported[this.ext] + "?" + no_cache;
+            var url = this.options.path + encodeURIComponent(this.options.name) + "." +
+                        this.options.supported[this.ext];
+
+            if (this.options.allow_cache === true) {
+                url =  url + "?" + new Date().valueOf();
+            }
+            this.url = url;
         },
 
         load: function () {
@@ -369,9 +375,10 @@
             }
 
             if (!this.loaded) {
-                this.autoplay = true;
-                this.load();
-
+                if (!this.options.preload) {
+                    this.autoplay = true;
+                    this.load();
+                }
                 return;
             }
 
@@ -584,6 +591,7 @@
         },
 
         ended: function () {
+            var was_playing = this.playing;
             this.playing = false;
             this.time_ended = new Date().valueOf();
             this.time_played = (this.time_ended - this.time_started) / 1000;
@@ -593,7 +601,7 @@
                 this._ended();
                 this.clear();
 
-                if (this.loop) {
+                if (this.loop && was_playing) {
                     this.loop--;
                     this.play();
                 }

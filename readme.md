@@ -122,7 +122,6 @@ ion.sound.play("my_cool_sound");
             <td>array</td>
             <td>Collection of sound objects. Each object contains information about sound file and (optional) individual settings</td>
         </tr>
-
         <tr>
             <td>path</td>
             <td>-</td>
@@ -153,12 +152,18 @@ ion.sound.play("my_cool_sound");
             <td>number</td>
             <td>Playback volume from 0 to 1</td>
         </tr>
-
         <tr>
             <td>scope</td>
             <td>null</td>
             <td>object</td>
             <td>Callbacks will be called in that object's scope</td>
+        </tr>
+        <tr>
+            <td>allow_cache</td>
+            <td>true</td>
+            <td>boolean</td>
+            <td>If set to false, would disable the browser cache by appending a random string to every time the sounds
+            file is being loaded</td>
         </tr>
         <tr>
             <td>ready_callback</td>
