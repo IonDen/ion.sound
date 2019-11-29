@@ -1,5 +1,8 @@
 # Ion.Sound Update History
 
+### Version 3.0.8. March 21, 2017
+* Implemented request #52 - option to enable browser caching by Gorlum https://github.com/supernova-ws
+
 ### Version 3.0.7. March 06, 2016
 * Fixed bug #71
 

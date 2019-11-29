@@ -6,9 +6,9 @@ JavaScript plugin for playing sounds on user actions and page events.
 
 ***
 
-* Version: 3.0.7
+* Version: 3.0.8
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
-* <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.7.zip">Download ZIP</a>
+* <a href="https://github.com/supernova-ws/ion.sound/archive/master.zip">Download ZIP</a>
 
 ## Description
 * Ion.Sound — JavaScript-plugin for playing sounds based on Web Audio API.
@@ -134,6 +134,12 @@ ion.sound.play("my_cool_sound");
             <td>false</td>
             <td>boolean</td>
             <td>Preloading sounds</td>
+        </tr>
+        <tr>
+            <td>allow_caching</td>
+            <td>false</td>
+            <td>boolean</td>
+            <td>Allow browser sounds caching by removing "?timestamp" from URL</td>
         </tr>
         <tr>
             <td>multiplay</td>
