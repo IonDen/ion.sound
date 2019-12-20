@@ -1,5 +1,7 @@
 # Ion.Sound Update History
 
+[Support the plugin on GitHub sponsors](https://github.com/sponsors/IonDen)
+
 ### Version 3.0.7. March 06, 2016
 * Fixed bug #71
 
@@ -74,3 +76,5 @@
 
 ### Version 1.0.0. September 07, 2013
 * Plugin release
+
+[Support the plugin on GitHub sponsors](https://github.com/sponsors/IonDen)
