@@ -1,7 +1,5 @@
 ![ion.sound](_tmp/logo-ion-sound.png)
 
-> English description | <a href="readme.ru.md">Описание на русском</a>
-
 JavaScript plugin for playing sounds on user actions and page events.
 
 ***
@@ -9,6 +7,7 @@ JavaScript plugin for playing sounds on user actions and page events.
 * Version: 3.0.7
 * <a href="http://ionden.com/a/plugins/ion.sound/en.html">Project page and demos</a>
 * <a href="http://ionden.com/a/plugins/ion.sound/ion.sound-3.0.7.zip">Download ZIP</a>
+* [Support the plugin on GitHub sponsors](https://github.com/sponsors/IonDen)
 
 ## Description
 * Ion.Sound — JavaScript-plugin for playing sounds based on Web Audio API.
@@ -229,8 +228,6 @@ ion.sound.play("my_cool_sound");
 
 #### Support Ion-series plugins development:
 
-* Donate through Pledgie service: [![](https://pledgie.com/campaigns/25694.png?skin_name=chrome)](https://pledgie.com/campaigns/25694)
+* [Support the plugin on GitHub sponsors](https://github.com/sponsors/IonDen)
 
 * Donate direct to my Paypal account: https://www.paypal.me/IonDen
-
-* Donate direct to my Yandex.Money account: http://yasobe.ru/na/razrabotku
