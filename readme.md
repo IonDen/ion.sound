@@ -62,14 +62,17 @@ You can easily convert you MP3-s to OGG-s and AAC-s at <a href="http://media.io/
 <i>AAC support was added to improve cross browser support of iOS 8.x devices (iPhone, iPad)</i>
 
 
-## Install with bower
-* bower install ionsound
-
 ## Install with npm
+Use [NPM](https://www.npmjs.com/package/ion-sound) to download latest version of a plugin and install it directly in to your project. 
+
 * npm install ion-sound
 
-## Install with spm [![](http://spmjs.io/badge/ion-sound)](http://spmjs.io/package/ion-sound)
-* spm install ion-sound
+
+## Install with Yarn
+
+Use [Yarn](https://yarnpkg.com/en/package/ion-sound) to download latest version of a plugin and install it directly in to your project. 
+
+* yarn add ion-sound
 
 
 ## Initialisation
@@ -105,115 +108,28 @@ ion.sound.play("my_cool_sound");
 
 ## General settings
 
-<table class="options">
-    <thead>
-        <tr>
-            <th>Option</th>
-            <th>Defaults</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="options__step">
-            <td>sounds</td>
-            <td>-</td>
-            <td>array</td>
-            <td>Collection of sound objects. Each object contains information about sound file and (optional) individual settings</td>
-        </tr>
-
-        <tr>
-            <td>path</td>
-            <td>-</td>
-            <td>string</td>
-            <td>Path to file</td>
-        </tr>
-        <tr>
-            <td>preload</td>
-            <td>false</td>
-            <td>boolean</td>
-            <td>Preloading sounds</td>
-        </tr>
-        <tr>
-            <td>multiplay</td>
-            <td>false</td>
-            <td>boolean</td>
-            <td>Sound multi play. If set, will allow to play multiple instances of one sound at once</td>
-        </tr>
-        <tr>
-            <td>loop</td>
-            <td>false</td>
-            <td>boolean/number</td>
-            <td>If set to true will enable infinite loop. Or paste a number to set loop limit</td>
-        </tr>
-        <tr class="options__step">
-            <td>volume</td>
-            <td>1.0</td>
-            <td>number</td>
-            <td>Playback volume from 0 to 1</td>
-        </tr>
-
-        <tr>
-            <td>scope</td>
-            <td>null</td>
-            <td>object</td>
-            <td>Callbacks will be called in that object's scope</td>
-        </tr>
-        <tr>
-            <td>ready_callback</td>
-            <td>null</td>
-            <td>function</td>
-            <td>Called after sound file is fully uploaded (or ready to play for HTML5 audio)</td>
-        </tr>
-        <tr>
-            <td>ended_callback</td>
-            <td>null</td>
-            <td>function</td>
-            <td>Called each time then sound file will reach it's end</td>
-        </tr>
-    </tbody>
-</table>
+| Option | Defaults | Type | Description |
+| --- | --- | --- | --- |
+| `sounds` | `-` | `array` | Collection of sound objects. Each object contains information about sound file and (optional) individual settings |
+| `path` | `-` | `string` | Path to file |
+| `preload` | `false` | `boolean` | Preloading sounds |
+| `multiplay` | `false` | `boolean` | Sound multi play. If set, will allow to play multiple instances of one sound at once |
+| `loop` | `false` | `boolean/number` | If set to true will enable infinite loop. Or paste a number to set loop limit |
+| `volume` | `1.0` | `number` | Playback volume from 0 to 1 |
+| `scope` | `null` | `object` | Callbacks will be called in that object's scope |
+| `ready_callback` | `null` | `function` | Called after sound file is fully uploaded (or ready to play for HTML5 audio) |
+| `ended_callback` | `null` | function`` | Called each time then sound file will reach it's end |
 
 
 ## Sound object
 
-<table class="options">
-    <thead>
-        <tr>
-            <th>Option</th>
-            <th>Defaults</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>name</td>
-            <td>-</td>
-            <td>string</td>
-            <td>File name. Plugin will choose file extension automatically (.mp3, .ogg, .aac, .mp4 and etc.)</td>
-        </tr>
-        <tr>
-            <td>alias</td>
-            <td>-</td>
-            <td>string</td>
-            <td>Alias for sound call, optional. Normally is used to shorten ion.sound calls</td>
-        </tr>
-        <tr>
-            <td>sprite</td>
-            <td>-</td>
-            <td>object</td>
-            <td>
-                Mark that sound is audio-sprite.
-                This is an object. Example: <code>{"part_name_1": [0, 2], "part_name_2": [2, 2]}</code><br/>
-                Part_name is a name of sprite piece (it is used instead of name to play a sound). And array with time marks: [start, duration] in seconds.
-            </td>
-        </tr>
-        <tr>
-            <td colspan="4">And also individual: path, preload, multiplay, loop, volume, scope and callbacks</td>
-        </tr>
-    </tbody>
-</table>
+| Option | Defaults | Type | Description |
+| --- | --- | --- | --- |
+| `name` | `-` | `string` | File name. Plugin will choose file extension automatically (.mp3, .ogg, .aac, .mp4 and etc.) |
+| `alias` | `-` | `string` | Alias for sound call, optional. Normally is used to shorten ion.sound calls |
+| `sprite` | `-` | `object` | Mark that sound is audio-sprite. This is an object. Example: <code>{"part_name_1": [0, 2], "part_name_2": [2, 2]}</code><br/>Part_name is a name of sprite piece (it is used instead of name to play a sound). And array with time marks: [start, duration] in seconds. |
+                
+And also individual: path, preload, multiplay, loop, volume, scope and callbacks
 
 
 ## Plugin can be launched in jQuery namespace
