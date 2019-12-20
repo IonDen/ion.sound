@@ -35,9 +35,5 @@
     "bugs": {
         "url": "https://github.com/IonDen/ion.sound/issues"
     },
-    "license": "MIT",
-
-    "spm": {
-        "main": "js/ion.sound.js"
-    }
+    "license": "MIT"
 }
