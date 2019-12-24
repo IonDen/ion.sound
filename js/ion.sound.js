@@ -404,7 +404,9 @@
                 }
 
             } else {
-                this.streams[0].stop();
+                if(this.streams.hasOwnProperty(0)) {
+                    this.streams[0].stop();
+                }
             }
         },
 
