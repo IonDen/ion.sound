@@ -584,12 +584,14 @@
         },
 
         ended: function () {
+            var wasPlaying = this.playing;
+            console.log('wasPlaying:', wasPlaying);
             this.playing = false;
             this.time_ended = new Date().valueOf();
             this.time_played = (this.time_ended - this.time_started) / 1000;
             this.time_offset += this.time_played;
 
-            if (this.time_offset >= this.end || this.end - this.time_offset < 0.015) {
+            if (wasPlaying && (this.time_offset >= this.end || this.end - this.time_offset < 0.015)) {
                 this._ended();
                 this.clear();
 
