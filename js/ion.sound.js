@@ -215,6 +215,7 @@
         this.loaded = false;
         this.decoded = false;
         this.no_file = false;
+        this.file_not_found = false;
         this.autoplay = false;
     };
 
@@ -291,15 +292,18 @@
         },
 
         ready: function (data) {
-            this.result = data.target;
 
-            if (this.result.readyState !== 4) {
+           this.result = data.target;
+            
+           if (this.result.readyState !== 4) {
+                this.file_not_found = true;
                 this.reload();
                 return;
             }
 
             if (this.result.status !== 200 && this.result.status !== 0) {
                 warn(this.url + " was not found on server!");
+                this.file_not_found = true;
                 this.reload();
                 return;
             }
@@ -308,6 +312,7 @@
             this.request.removeEventListener("error", this.error.bind(this), false);
             this.request = null;
             this.loaded = true;
+            this.file_not_found = false;
             //warn("Loaded: " + this.options.name + "." + settings.supported[this.ext]);
 
             this.decode();
@@ -362,16 +367,22 @@
         },
 
         play: function (options) {
+
             delete this.options.part;
 
             if (options) {
                 extend(options, this.options);
             }
-
+            
+            if(this.options.preload === true && this.file_not_found === true) {
+                if(typeof options.callback == 'function') {
+                    return options.callback({'error':true, 'message':'File ' + this.url.substring(0 , this.url.indexOf('?')) + ' was not found'});
+                }
+            }
+            
             if (!this.loaded) {
                 this.autoplay = true;
                 this.load();
-
                 return;
             }
 
