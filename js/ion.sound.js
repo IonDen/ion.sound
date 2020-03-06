@@ -558,6 +558,7 @@
         },
 
         stop: function () {
+            this.loop = false;
             if (this.playing && this.source) {
                 if (typeof this.source.stop === "function") {
                     this.source.stop(0);
@@ -565,7 +566,6 @@
                     this.source.noteOff(0);
                 }
             }
-
             this.clear();
         },
 
@@ -584,19 +584,22 @@
         },
 
         ended: function () {
+            var threshold = 15; // ms
+            const wasPlaying = this.playing;
             this.playing = false;
             this.time_ended = new Date().valueOf();
             this.time_played = (this.time_ended - this.time_started) / 1000;
             this.time_offset += this.time_played;
-
-            if (this.time_offset >= this.end || this.end - this.time_offset < 0.015) {
+            if (wasPlaying && (this.time_offset >= this.end || this.end - this.time_offset < (threshold / 1000))) {
                 this._ended();
                 this.clear();
 
-                if (this.loop) {
-                    this.loop--;
-                    this.play();
-                }
+                setTimeout(() => {
+                    if (this.loop) {
+                        this.loop--;
+                        this.play();
+                    }
+                }, threshold);
             }
         },
 
